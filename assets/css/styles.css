@@ -1,3 +1,19 @@
 body{
     background-color: blanchedalmond
 }
+
+#staycation{
+    background: url(../images/Atlanta1.jpg) no-repeat center center fixed;
+    opacity: 1;
+    background-size: cover;
+    height: 100%;
+    
+}
+
+#vacation{
+    background: url(../images/MW-HE536_airpla_ZH_20190225131547.jpg) no-repeat center center fixed;
+    opacity: 1;
+    background-size: cover;
+    height: 100%;
+    
+}
