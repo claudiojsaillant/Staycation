@@ -85,13 +85,14 @@ img{
 
 .link-modal a{
     border: 1px solid #fff;
-    color: #fff;
-    font-family: Verdana;
+    background-color: #fff;
+    opacity: 0.75;
+    color: black;
     font-size: 20px;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.2em;
+    font-weight: 700;
     padding: 10px;
     text-decoration: none;
-    text-transform: uppercase;
 }
 
 #pick-your-place{
