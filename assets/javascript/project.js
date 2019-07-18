@@ -11,57 +11,22 @@
 // .then(response => response.text())
 // .then(contents => console.log(JSON.parse(contents)))
 // .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))
+// var QueryURL = "http://api.eventful.com/json/events/search?...&keywords=" + keyword + "&location=" + City + "&date=" + when + "&app_key=DzrBFd4tkfmKkSSH"
 
+var keyword = 'food';
+var place = 'Georgia';
+var when = 'Future';
+var queryURL = "http://api.eventful.com/json/events/search?keywords=" + keyword + "&location=" + place + "&date=" + when + "&app_key=DzrBFd4tkfmKkSSH"
 
-// http://api.eventful.com/rest/events/search?...&keywords=books&location=San+Diego&date=Future&api_key=DzrBFd4tkfmKkSSH
-
-
-function show_alert() {
-
-    var oArgs = {
-
-        app_key: "DzrBFd4tkfmKkSSH",
-
-        id: "20218701",
-
-        page_size: 25,
-
-    };
-
-    EVDB.API.call("/events/get", oArgs, function (oData) {
-
-        console.log(oData)
-
-    });
-
-}
-show_alert()
-
-
-// function show_alert2() {
-
-//     var oArgs = {
-
-//         app_key: "DzrBFd4tkfmKkSSH",
-
-//         q: "music",
-
-//         where: "San Diego",
-
-//         "date": "2013061000-2015062000",
+const proxyurl = "https://cors-anywhere.herokuapp.com/";
+const url = queryURL;
+fetch(proxyurl + url) 
+.then(response => response.text())
+.then(contents => console.log(JSON.parse(contents)))
+.catch(() => console.log("Can’t access " + url + " response. Blocked by browser??"))
 
 
 
 
-//     };
 
-//     EVDB.API.call("/events/search", oArgs, function (oData) {
-
-//         console.log(oData)
-
-//     });
-
-// }
-
-// show_alert2()
 
