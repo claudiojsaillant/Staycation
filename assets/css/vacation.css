@@ -4,6 +4,11 @@ body{
     height: 100%;    
 }
 
+.vay-font{
+    font-family: 'Courgette', cursive;
+    -webkit-text-stroke: 0.25px white;
+}
+
 .fancy-btn{
     width: 90%;
     text-align: center;
@@ -25,4 +30,8 @@ body{
 
 #events-section{
     display: none;
+    margin-top: 30px;
+    border: 1px solid #fff;
+    color: white;
+    font-size: 18px;
 }
