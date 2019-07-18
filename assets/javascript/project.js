@@ -20,7 +20,7 @@ const url = queryURL;
 fetch(proxyurl + url) 
 .then(response => response.text())
 .then(contents => console.log(JSON.parse(contents)))
-.catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))
+.catch(() => console.log("Can’t access " + url + " response. Blocked by browser??"))
 
 
 
