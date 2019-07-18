@@ -13,7 +13,10 @@
 // .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))
 // var QueryURL = "http://api.eventful.com/json/events/search?...&keywords=" + keyword + "&location=" + City + "&date=" + when + "&app_key=DzrBFd4tkfmKkSSH"
 
-var queryURL = "http://api.eventful.com/json/events/search?...&keywords=books&location=San+Diego&date=Future&app_key=DzrBFd4tkfmKkSSH"
+var keyword = 'food';
+var place = 'Georgia';
+var when = 'Future';
+var queryURL = "http://api.eventful.com/json/events/search?keywords=" + keyword + "&location=" + place + "&date=" + when + "&app_key=DzrBFd4tkfmKkSSH"
 
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
 const url = queryURL;
