@@ -6,7 +6,7 @@ body{
 
 .stay-font{
     font-family: 'Barlow', sans-serif;
-    -webkit-text-stroke: 0.5px white;
+    -webkit-text-stroke: 0.25px white;
 }
 
 p, h4{
