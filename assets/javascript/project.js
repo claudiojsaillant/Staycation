@@ -80,3 +80,35 @@ let address_pattern=/([A-Za-z0-9- t]+)/gm;
 //var passwordStrengthRegex = /((?=.*d)(?=.*[a-z])(?=.*[A-Z]).{8,15})/gm; 
 //match elements that could contain a phone number
 //var phoneNumber = /[0-9-()+]{3,20}/; 
+
+//assign it to a variable
+//api key=5JBPF5FLFHMJ64BHDN;
+//client secret =OAGKXAXVKWIQCJLTUHTN5P3RHSZV5Q7A5LSFCSOJ72YG6GT2HB;
+// private token=WFJRPDU6HBB2UOUBTITI
+//public token=PVDBCWN2EA4EARPTSN43;
+//Application Key: 5JBPF5FLFHMJ64BHDN
+Application Key: 5JBPF5FLFHMJ64BHDN
+
+OAuth Client Secret: OAGKXAXVKWIQCJLTUHTN5P3RHSZV5Q7A5LSFCSOJ72YG6GT2HB
+
+//OAuth Client Secret: OAGKXAXVKWIQCJLTUHTN5P3RHSZV5Q7A5LSFCSOJ72YG6GT2HB
+let searchTerm = ;
+let queryURL="https://www.eventbriteapi.com/v3/users/me/?token=PERSONAL_OAUTH_TOKEN"
+//let queryURLs = "https://api.giphy.com/v1/gifs/search?api_key=lISwnQ5TdGTfXd9Ex4N17L98lbq6KRRi&limit=10&q=" + searchTerm;
+//make an ajax call
+$.ajax({
+    url: queryURL,
+    method: "GET"
+})// We store all of the retrieved data inside of an object called "response"
+    .then(function (response) {
+        //console.log(response);
+        //store all data from ajax call to a variable
+        let results = response.data;
+        //alert the user when there no images for current search form giphy.com
+        if(results.length===0){
+
+
+
+
+
+        }});
