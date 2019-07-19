@@ -58,6 +58,14 @@ let result=email.match(email_pattern);
 // var QueryURL = "http://api.eventful.com/json/events/search?...&keywords=" + keyword + "&location=" + City + "&date=" + when + "&app_key=DzrBFd4tkfmKkSSH"
 
 var keyword = 'food';
+
+$(".cat").click(function(event){
+    event.preventDefault();
+    console.log("You picked a category: ", $(".cat").attr("data-val"));
+    keyword = $(".cat").attr("data-val");
+    console.log("New keyword: ", keyword);
+
+
 var place = 'Georgia';
 var when = 'Future';
 var queryURL = "http://api.eventful.com/json/events/search?keywords=" + keyword + "&location=" + place + "&date=" + when + "&app_key=DzrBFd4tkfmKkSSH"
@@ -69,8 +77,7 @@ fetch(proxyurl + url)
 .then(contents => console.log(JSON.parse(contents)))
 .catch(() => console.log("Can’t access " + url + " response. Blocked by browser??"))
 
-
-
+});
 
 
 
