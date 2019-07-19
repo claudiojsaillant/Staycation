@@ -10,7 +10,7 @@ body{
     -webkit-text-stroke: 0.25px white;
 }
 
-p, h4{
+p, h4, a{
     color: white;
 }
 
@@ -107,4 +107,8 @@ img{
 
 i{
     margin: 3px;
+}
+
+span a{
+    color: white;
 }
