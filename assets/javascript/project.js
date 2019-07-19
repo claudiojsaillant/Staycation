@@ -25,14 +25,20 @@ $(".cat").click(function(event){
 var place = 'Georgia';
 var when = 'Future';
 var queryURL = "http://api.eventful.com/json/events/search?keywords=" + keyword + "&location=" + place + "&date=" + when + "&app_key=DzrBFd4tkfmKkSSH"
+var eventData ='';
 
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
 const url = queryURL;
 fetch(proxyurl + url) 
 .then(response => response.text())
 .then(contents => console.log(JSON.parse(contents)))
+.then(contents => eventData = (JSON.parse(contents)))
+.then($("#events-response").append("<div>" + eventData + "</div>"))
+.then($("#events-response").append("<div><h4>Events go here!</h4></div>"))
+
 .catch(() => console.log("Can’t access " + url + " response. Blocked by browser??"))
 
+$("#text").hide();
 });
 
 
