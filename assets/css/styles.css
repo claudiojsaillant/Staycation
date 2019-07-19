@@ -2,9 +2,25 @@
     background: url(../images/architecture-background-buildings-218983\ copy.jpg) no-repeat center center fixed;
     background-size: cover;
     height: 100%;   
-    
+      }
 
-}
+      /* .container  {
+        display: flex;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+      }
+      
+      .container .row {
+        margin: 0 auto;
+      }
+/*  */
+/* #text {
+    font-size: 12px;
+} */ */
+
 
 /* .body{
     background-color: blanchedalmond
