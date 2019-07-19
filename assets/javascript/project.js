@@ -2,12 +2,12 @@
 
 $("#submitBtn").on("click", function(e){
     e.preventDefualt();
-    let semail= $("#name_input").val();
+    let email= $("#name_input").val();
     //let name_pattern=/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/; 
     //var email_pattern = /^[\w-.+]+@[a-zA-Z0-9.-]+.[a-zA-z0-9]{2,4}$/
     
     var filter = /^[w-.+]+@[a-zA-Z0-9.-]+.[a-zA-z0-9]{2,4}$/;
-    let result=semail.match(filter);
+    let result=email.match(filter);
 
     console.log(result);
     console.log(semail);
