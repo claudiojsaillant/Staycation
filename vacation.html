@@ -9,40 +9,52 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>Go and Play</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/css/resetCss.css">
     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'
         integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/vacation.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Barlow|Courgette&display=swap" rel="stylesheet">
     <script src='https://code.jquery.com/jquery.js'></script>
 </head>
 
-<body class="body">
+<body id="vacation">
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card blue-grey darken-1">
-                <div class="card-content white-text">
-                    <span class="card-title">Card Title</span>
-                    <p>Need to get away but don’t know where to go or what to do? What if you need to get away but don’t have time to take a big trip? What if you have time but have no inspiration? That’s where the Staycation/Vacation app comes in. This app helps you find places of interest to visit or events based on your location, distance willing to travel, and preferences. You can use this app to discover new places to visit, rate places you have visited, see other people’s reviews, and find nearby food options. If you want to go further you can switch to vacation mode to search flight prices, hotels, rental car, and public transportation for your destination. Whether you want to stay close to home or roam the globe, this app is here for you.</p>
+    <div class="container">
+        <header>
+            <h1 class="vay-font">Vacation</h1>
+        </header>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="fancy-btn">
+                    <a href="https://www.skyscanner.com/" target="_blank">Flights</a>
                 </div>
-                <div class="card-action">
-                    <a href="staycation.html" class="btn btn-primary btn-lg active" role="button"
-                        aria-disabled="true">Staycation</a>
-                    <a href="vacation.html" class="btn btn-success btn-lg active" role="button"
-                        aria-disabled="true">Vacation</a>
+            </div>
+            <div class="col-md-4">
+                <div class="fancy-btn">
+                    <a href="https://www.hotels.com/" target="_blank">Hotels</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="fancy-btn">
+                    <a href="#events-section" id="events-btn">Events</a>
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-12" id="events-section">
+                <p>Placeholder for Events, Parks, and Points of Interest</p>
+            </div>
+        </div>
     </div>
-
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'
         integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1'
@@ -50,10 +62,7 @@
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'
         integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM'
         crossorigin='anonymous'></script>
-    <script src="assets/javascript/project.js"></script>
-
-
-
+    <script src="assets/javascript/vacation.js"></script>
 </body>
 
 </html>

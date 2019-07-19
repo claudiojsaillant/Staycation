@@ -1,3 +1,28 @@
-body{
-    background-color: blanchedalmond
+.body{
+    background: url(../images/architecture-background-buildings-218983\ copy.jpg) no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;   
+    
+
 }
+
+/* .body{
+    background-color: blanchedalmond
+} */
+/* 
+.body:after {
+ content: "";
+ position: fixed;
+ top: 0; bottom: 0; left: 0; right: 0;
+ background: rgba(55, 183, 198, 0.399);
+ pointer-events: none;
+}
+
+#hey:hover{
+    padding: 40px;
+}
+ */
+
+
+
+

@@ -1,0 +1,37 @@
+body{
+    background: url(../images/MW-HE536_airpla_ZH_20190225131547.jpg) no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;    
+}
+
+.vay-font{
+    font-family: 'Courgette', cursive;
+    -webkit-text-stroke: 0.25px white;
+}
+
+.fancy-btn{
+    width: 90%;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 100px;
+    padding-left: 15px;
+}
+
+.fancy-btn a{
+    border: 1px solid #fff;
+    color: #fff;
+    font-family: Verdana;
+    font-size: 20px;
+    letter-spacing: 0.3em;
+    padding: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+#events-section{
+    display: none;
+    margin-top: 30px;
+    border: 1px solid #fff;
+    color: white;
+    font-size: 18px;
+}
