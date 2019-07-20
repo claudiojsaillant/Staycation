@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css?family=Barlow|Courgette&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet">
     <script src='https://code.jquery.com/jquery.js'></script>
 </head>
 
@@ -29,7 +31,7 @@
     <div class="container">
         <div class="row white-text">
             <div class="mx-auto">
-                <h1>Staycation or Vacation</h1>
+                <h1><span id="stay">Staycation</span> or <span id="vay">Vacation</span></h1>
             </div>
 
 
@@ -37,9 +39,9 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-xl-10">
-                <div class="card blue-grey darken-1">
+                <div class="card blue-grey darken-1" id="transparent-card">
                     <div class="card-content white-text">
-                        <span class="card-title">Card Title</span>
+                        <span class="card-title">Stay and Play or Need to Get Away?</span>
                         <p>Need to get away but don’t know where to go or what to do? What if you need to get away but
                             don’t have time to take a big trip? What if you have time but have no inspiration? That’s
                             where the Staycation/Vacation app comes in. This app helps you find places of interest to
@@ -53,7 +55,7 @@
                     <div class="card-action">
                             
             
-                                    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Modal</button>
+                                    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Set Preferences</button>
                                   
                                     <div id="id01" class="w3-modal">
                                       <div class="w3-modal-content w3-card-4">
