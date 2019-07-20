@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src='https://code.jquery.com/jquery.js'></script>
 </head>
 
@@ -50,6 +51,33 @@
                             for you.</p>
                     </div>
                     <div class="card-action">
+                            
+            
+                                    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Modal</button>
+                                  
+                                    <div id="id01" class="w3-modal">
+                                      <div class="w3-modal-content w3-card-4">
+                                        <header class="w3-container w3-teal"> 
+                                          <span onclick="document.getElementById('id01').style.display='none'" 
+                                          class="w3-button w3-display-topright">&times;</span>
+                                          <h2>Just before you begin!!!</h2>
+                                        </header>
+                                        <div class="w3-container">
+                                          <p>Area for the preferneces sheet</p>
+                                          <p>Click on the "x" or click anywhere outside of the modal!</p>
+                                        </div>
+                                        <footer class="w3-container w3-teal">
+                                          <!-- <p>Modal Footer</p> -->
+                                          <button onclick="document.getElementById('id02').style.display='block'" class="w3-button w3-black">Sign Up</button>
+                                            
+                                          <button onclick="document.getElementById('id03').style.display='block'" class="w3-button w3-black">Sign In</button>
+                        
+                                        </footer>
+                                      </div>
+                                    </div>
+                                  </div>
+                        
+                    
                         <a href="staycation.html" class="btn btn-primary btn-lg active" role="button"
                             aria-disabled="true">Staycation</a>
                         <a href="vacation.html" class="btn btn-success btn-lg active" role="button"
@@ -61,6 +89,8 @@
         </div>
     </div>
 
+
+ 
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'
         integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1'
