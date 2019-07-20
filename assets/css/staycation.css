@@ -112,3 +112,13 @@ i{
 span a{
     color: white;
 }
+
+#events-response{
+    text-align: center
+}
+
+.thumbnail{
+    width: 30%;
+    margin: 5px;
+    border: 2px solid #fff;
+}
