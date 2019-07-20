@@ -74,7 +74,7 @@ database.ref().on('value', function (snap) {
             idInDb = snap.val()[userRef].userid;
             pwdInDb = snap.val()[userRef].userpwd;
             if (currentid === idInDb) {
-                tryingToLog = true;
+                
                 if (currentpwd === pwdInDb && tryingToLog) {
                     tryingToLog = false;
 
