@@ -34,9 +34,10 @@ img{
     }
     .modalbox .title {
     border-bottom: 1px solid #ccc;
-    font-family: verdana;
+    text-transform: capitalize;
+    font-family: 'Abril Fatface', cursive;
     font-size: 22px;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.01em;
     margin: 0;
     padding: 0 0 10px;
     text-transform: uppercase;
