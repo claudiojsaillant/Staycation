@@ -2,16 +2,19 @@ body{
     background: url(../images/Atlanta1.jpg) no-repeat center center fixed;
     background-size: cover;
     height: 100%;
+    color: white;
 }
 
 .stay-font{
     /* font-family: 'Barlow', sans-serif; */
     font-family: 'Abril Fatface', cursive;
     -webkit-text-stroke: 0.25px white;
+    color: black;
+    font-size: 4rem;
 }
 
-p, h4, a{
-    color: white;
+p, h1, h2, h3, h4, h5 a{
+    font-family: 'Abril Fatface', cursive;
 }
 
 img{
@@ -88,6 +91,7 @@ img{
     border: 1px solid #fff;
     background-color: #fff;
     opacity: 0.75;
+    font-family: 'Abril Fatface', cursive;
     color: black;
     font-size: 20px;
     letter-spacing: 0.2em;
@@ -96,13 +100,29 @@ img{
     text-decoration: none;
 }
 
+#loading{
+    display: none;
+    max-width: 15%;
+    margin-top: 30px;
+}
+
 #pick-your-place{
-    
     padding-top: 200px;
+}
+
+#pick-your-place h3{
+    font-family: 'Abril Fatface', cursive;
+    font-size: 2rem;
 }
 
 .choices{
     margin: 10px;
+}
+
+#key{
+    font-family: 'Abril Fatface', cursive;
+    text-transform: capitalize;
+    text-decoration: underline solid white;
 }
 
 i{
@@ -112,3 +132,35 @@ i{
 span a{
     color: white;
 }
+
+#events-response{
+    text-align: center
+}
+
+.thumbnail{
+    width: 30%;
+    margin: 5px;
+    border: 2px solid #fff;
+}
+
+.w3-button{
+    font-family: 'Abril Fatface', cursive;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 450px) {
+    .link-modal a{
+        font-size: 18px;
+        letter-spacing: 0.1em;
+        padding: 8px;
+    }
+
+    .modalbox .box {
+        min-width: 395px;
+        
+    }
+
+    #pick-your-place {
+        padding-top: 240px;
+    }
+ }
