@@ -96,6 +96,11 @@ img{
     text-decoration: none;
 }
 
+#loading{
+    display: none;
+    max-width: 15%;
+}
+
 #pick-your-place{
     
     padding-top: 200px;
@@ -107,6 +112,7 @@ img{
 
 #key{
     text-transform: capitalize;
+    text-decoration: underline solid white;
 }
 
 i{
