@@ -105,6 +105,10 @@ img{
     margin: 10px;
 }
 
+#key{
+    text-transform: capitalize;
+}
+
 i{
     margin: 3px;
 }
