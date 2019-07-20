@@ -122,3 +122,20 @@ span a{
     margin: 5px;
     border: 2px solid #fff;
 }
+
+@media screen and (max-width: 450px) {
+    .link-modal a{
+        font-size: 18px;
+        letter-spacing: 0.1em;
+        padding: 8px;
+    }
+
+    .modalbox .box {
+        min-width: 395px;
+        
+    }
+
+    #pick-your-place {
+        padding-top: 240px;
+    }
+ }
