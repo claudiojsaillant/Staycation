@@ -17,8 +17,8 @@ var keyword = 'food';
 
 $(".cat").click(function (event) {
     event.preventDefault();
-    console.log("You picked a category: ", $(".cat").attr("data-val"));
-    keyword = $(".cat").attr("data-val");
+    console.log("You picked a category: ", $(this).attr("data-val"));
+    keyword = $(this).attr("data-val");
     console.log("New keyword: ", keyword);
 
 
@@ -38,8 +38,8 @@ $(".cat").click(function (event) {
             //pull data with myData variable//
 
             // .then($("#events-response").append("<div>" + eventData + "</div>")
-            // .then($("#events-response").append("<div><h4>Events go here!</h4></div>"))
-
+            .then($("#events-response").append("<div><h4>Events go here!</h4></div>"))
+            
             
 
         })
