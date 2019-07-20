@@ -1,12 +1,12 @@
-$(document).ready(function(){
+$(document).ready(function () {
     //in case needed
- });
- 
-$("#linkmodal").click(function(){
+});
+
+$("#linkmodal").click(function () {
     $("#linkmodal").hide();
 })
 
-$("#modal-close").click(function(){
+$("#modal-close").click(function () {
     $("#linkmodal").show();
 })
 
@@ -14,15 +14,15 @@ $("#modal-close").click(function(){
 $('#signupform').hide();
 $('#logform').hide();
 
-$('#registermodal').on('click', function(){
+$('#registermodal').on('click', function () {
     $('#signupform').show();
     $('#logform').hide();
 })
 
-$('#logmodal').on('click', function(){
+$('#logmodal').on('click', function () {
     $('#logform').show();
     $('#signupform').hide();
-    
+
 })
 
 var firebaseConfig = {
@@ -46,7 +46,7 @@ var isLogged;
 var userLogged;
 var favortiteArray = ['manuel'];
 var actualUserFav;
-
+var tryingToLog = false;
 database.ref('/userAuth').set({})
 
 database.ref().on('value', function (snap) {
@@ -74,9 +74,9 @@ database.ref().on('value', function (snap) {
             idInDb = snap.val()[userRef].userid;
             pwdInDb = snap.val()[userRef].userpwd;
             if (currentid === idInDb) {
-                console.log('Your id is good!')
+
                 if (currentpwd === pwdInDb) {
-                    console.log('Good to log!')
+
                     userLogged = idInDb;
                     alert(userLogged + " Has loged in to the webpage!");
                     $('#logbutton').hide();
@@ -92,18 +92,27 @@ database.ref().on('value', function (snap) {
                         isLogged: true
                     })
                 }
-                else {
+              else  if (tryingToLog) {
                     alert('Incorrect password.')
                     $('#pwd-login').val('');
+                    tryingToLog = false
                 }
             }
-            else {
+            else if (tryingToLog) {
                 alert('Incorrect ID.')
                 $('#id-login').val('');
                 $('#pwd-login').val('');
+                tryingToLog = false
             }
         }
+        else if (tryingToLog) {
+            alert('Incorrect ID/Pasword.')
+            $('#id-login').val('');
+            $('#pwd-login').val('');
+            tryingToLog = false
+        }
     }
+
 })
 
 database.ref('/userCount').on('value', function (snap) {
@@ -139,6 +148,7 @@ $('#submitbutton').on('click', function (event) {
 
 $('#logbutton').on('click', function (event) {
     event.preventDefault();
+    tryingToLog = true;
     var logid = $('#id-login').val().trim();
     var logpwd = $('#pwd-login').val().trim();
 
@@ -148,7 +158,7 @@ $('#logbutton').on('click', function (event) {
             userpwd: logpwd
         })
     }
-    else {
+    else if (tryingToLog) {
         alert('Input a valid userID/Pasword')
     }
 })
@@ -165,7 +175,7 @@ $('#logout').on('click', function () {
     })
     alert('User: ' + userLogged + ' has sign out.');
     userLogged = '';
-    $('#logbutton').show();
+    // $('#logbutton').show();
     $('#logform').show();
     $('#logout').hide();
 })
