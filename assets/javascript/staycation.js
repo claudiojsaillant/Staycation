@@ -74,8 +74,9 @@ database.ref().on('value', function (snap) {
             idInDb = snap.val()[userRef].userid;
             pwdInDb = snap.val()[userRef].userpwd;
             if (currentid === idInDb) {
-
-                if (currentpwd === pwdInDb) {
+                tryingToLog = true;
+                if (currentpwd === pwdInDb && tryingToLog) {
+                    tryingToLog = false;
 
                     userLogged = idInDb;
                     alert(userLogged + " Has loged in to the webpage!");
