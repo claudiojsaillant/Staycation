@@ -21,6 +21,7 @@ $(".cat").click(function (event) {
     keyword = $(this).attr("data-val");
     console.log("New keyword: ", keyword);
 
+    $("#loading").show();
 
     var place = 'Georgia';
     var when = 'Future';
@@ -37,11 +38,10 @@ $(".cat").click(function (event) {
 
             //pull data with myData variable//
 
-            // .then($("#events-response").append("<div>" + eventData + "</div>")
-            $("#events-response").append("<div><h4>Events go here!</h4></div>");
-                
-
-            for (var i = 0; i < 10; i++) {
+            $("#loading").hide();
+            $("#events-response").append("<div><h4 id='key'>" + keyword + "</h4></div>");
+            
+            for (var i = 0; i < 15; i++) {
                 $("#events-response").append("<a href='"+ myData.events.event[i].url + "' target='_blank' alt='link to event' data-toggle='tooltip' data-placement='top' title='" + myData.events.event[i].title + "'><img class='thumbnail' src='"+ myData.events.event[i].image.medium.url + "'></a>");
             }
             

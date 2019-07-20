@@ -21,6 +21,8 @@
     <link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet">
     <script src='https://code.jquery.com/jquery.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
@@ -35,10 +37,12 @@
         </header>
 
         <div class="row">
-            <div class="col-md-12" id="events-response"></div>
+            <div class="col-md-12" id="events-response">
+                <img id="loading" src="assets/images/ajax-loader.gif">
+            </div>
 
         </div>
-        
+
         <div class="row">
             <div class="col-md-12">
                 <div class="link-modal" id="linkmodal">
@@ -68,10 +72,13 @@
                 </div>
             </div>
 
-            
+
             <div class="col-md-12" id="pick-your-place">
                 <h4>Know where you want to go?</h2>
             </div>
+
+
+
             <div class="row">
                 <div class="col-md-4">
                     <a href="https://www.stonemountainpark.com/" alt="link to Stone Mountain park" target="_blank"
@@ -90,6 +97,85 @@
                         data-toggle="tooltip" data-placement="top" title="Cascade Family Skate">
                         <img src="assets/images/cascade-skate.jpg">
                     </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card-action">
+
+
+                    <button onclick="document.getElementById('id01').style.display='block'"
+                        class="w3-button w3-black">Open Modal</button>
+
+                    <div id="id01" class="w3-modal">
+                        <div class="w3-modal-content w3-card-4">
+                            <header class="w3-container w3-teal">
+                                <span onclick="document.getElementById('id01').style.display='none'"
+                                    class="w3-button w3-display-topright">&times;</span>
+                                <h2>Just before you begin!!!</h2>
+                            </header>
+                            <div class="w3-container">
+
+                                <div class="card card-default" id="signupform">
+                                    <div class="card-header">
+                                        New Member Sign-Up
+                                    </div>
+                                    <div id="cardbody" class="card-body">
+
+                                        <form role="form">
+                                            <div class="form-group row">
+                                                <label for="name-input">userID: (just strings for now no numbers!)
+                                                </label>
+                                                <input class="form-control" id="id-input" type="text">
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="email-input">Password: </label>
+                                                <input class="form-control" id="pwd-input" type="password">
+                                                <input type="submit" id="submitbutton" class="btn btn-primary"
+                                                    value="Register!" />
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="card card-default" id="logform">
+                                    <div class="card-header">
+                                        Log-In!
+                                    </div>
+                                    <div id="cardbody" class="card-body">
+                                        <form role="form">
+                                            <div class="form-group row">
+                                                <label for="name-input">userID: </label>
+                                                <input class="form-control" id="id-login" type="text">
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="email-input">Password: </label>
+                                                <input class="form-control" id="pwd-login" type="password">
+                                                <input type="submit" id="logbutton" class="btn btn-primary"
+                                                    value="LogIn!" />
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <footer class="w3-container w3-teal">
+
+                                <button id="registermodal"
+                                    onclick="document.getElementById('id02').style.display='block'"
+                                    class="w3-button w3-black">Sign Up</button>
+
+                                <button id="logmodal" onclick="document.getElementById('id03').style.display='block'"
+                                    class="w3-button w3-black">Sign In</button>
+
+                                <button id="logout" onclick="document.getElementById('id03').style.display='block'"
+                                    class="w3-button w3-black">Log Out</button>
+
+                            </footer>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

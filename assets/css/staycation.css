@@ -96,6 +96,11 @@ img{
     text-decoration: none;
 }
 
+#loading{
+    display: none;
+    max-width: 15%;
+}
+
 #pick-your-place{
     
     padding-top: 200px;
@@ -103,6 +108,11 @@ img{
 
 .choices{
     margin: 10px;
+}
+
+#key{
+    text-transform: capitalize;
+    text-decoration: underline solid white;
 }
 
 i{
@@ -122,3 +132,20 @@ span a{
     margin: 5px;
     border: 2px solid #fff;
 }
+
+@media screen and (max-width: 450px) {
+    .link-modal a{
+        font-size: 18px;
+        letter-spacing: 0.1em;
+        padding: 8px;
+    }
+
+    .modalbox .box {
+        min-width: 395px;
+        
+    }
+
+    #pick-your-place {
+        padding-top: 240px;
+    }
+ }
