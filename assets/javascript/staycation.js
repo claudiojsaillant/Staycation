@@ -1,6 +1,13 @@
 $(document).ready(function () {
     //in case needed
+
 });
+
+function getCredentials(){
+    //because both js files are linked to index.html global variable declared on project.js are accessible in staycation.js
+    console.log("This login is from staycation.js", username + " " + password);
+    console.log("This signup is from staycation.js", newUsername + " " + newPassword);
+}
 
 $("#linkmodal").click(function () {
     $("#linkmodal").hide();
@@ -190,3 +197,5 @@ $('#favorite').on('click', function () {
         favorite: JSON.stringify(favortiteArray)
     })
 })
+
+
