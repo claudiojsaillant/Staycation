@@ -14,6 +14,8 @@
 // var QueryURL = "http://api.eventful.com/json/events/search?...&keywords=" + keyword + "&location=" + City + "&date=" + when + "&app_key=DzrBFd4tkfmKkSSH"
 
 var keyword = 'food';
+var username;
+var password;
 
 $(".cat").click(function (event) {
     event.preventDefault();
@@ -64,4 +66,46 @@ $(".cat").click(function (event) {
       modal.style.display = "none";
     }
   }
- 
+
+//Open and close sidenav
+function w3_open() {
+    $("#mySidebar").show();
+}
+
+function w3_close() {
+    $("#mySidebar").hide();
+}
+
+//Open preferences modal
+$("#preferences").click(function (event) {
+    event.preventDefault();
+    $("#id01").show();
+})
+
+//Open login modal
+$("#login").click(function (event) {
+    event.preventDefault();
+    $("#login-modal").show();
+})
+
+$('#login-btn').on('click', function () {
+    username = $("#username").val().trim();
+    password = $("#password").val().trim();
+    console.log("Reached project.js", username + "; " + password);
+    getCredentials();
+    $("#login-modal").modal('hide');
+});
+
+$("#register-btn").on('click', function () {
+    $("#signup-modal").modal('show');
+    $("#login-modal").modal('hide');
+});
+
+$('#signup-btn').on('click', function () {
+    newUsername = $("#newUsername").val().trim();
+    newPassword = $("#newPassword").val().trim();
+    console.log("Reached project.js", newUsername + "; " + newPassword);
+    getCredentials();
+    $("#signup-modal").modal('hide');
+});
+
