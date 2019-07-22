@@ -64,4 +64,12 @@ $(".cat").click(function (event) {
       modal.style.display = "none";
     }
   }
- 
+
+//Open and close sidenav
+function w3_open() {
+    $("#mySidebar").show();
+}
+
+function w3_close() {
+    $("#mySidebar").hide();
+}
