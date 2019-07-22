@@ -20,6 +20,17 @@
 
 
     <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        .error{
+            color: red;
+        }
+        #rchars{
+            color: rgb(26, 26, 138);
+        }
+    
+    </style>
+
+
 </head>
 <title>Staycation App</title>
 
@@ -54,10 +65,15 @@
                         Email:<br>
                         <input type="text" name="email" size="35" height="50px" placeholder="Youremail@youremail.com">
                         <br>
+                        password:<br>
+                        <input type="password" name="password" size="35" id="password" height="50px" >
+                        <br>
                         <br>
                         Message
                         <br>
-                        <textarea rows="10" cols="70" id="comment" type="text"  name="comment">
+                        <textarea rows="10" cols="70" id="comment" type="text"  name="comment" required maxlength="300"></textarea>
+                        <br>
+                                    <span id="rchars">300 Character(s) Remaining </span>
 
 
 </textarea>
