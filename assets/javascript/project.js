@@ -14,6 +14,10 @@
 // var QueryURL = "http://api.eventful.com/json/events/search?...&keywords=" + keyword + "&location=" + City + "&date=" + when + "&app_key=DzrBFd4tkfmKkSSH"
 
 var keyword = 'food';
+var username;
+var password;
+var newUsername;
+var newPassword;
 
 $(".cat").click(function (event) {
     event.preventDefault();
@@ -42,7 +46,22 @@ $(".cat").click(function (event) {
             $("#events-response").append("<div><h4 id='key'>" + keyword + "</h4></div>");
             
             for (var i = 0; i < 15; i++) {
-                $("#events-response").append("<a href='"+ myData.events.event[i].url + "' target='_blank' alt='link to event' data-toggle='tooltip' data-placement='top' title='" + myData.events.event[i].title + "'><img class='thumbnail' src='"+ myData.events.event[i].image.medium.url + "'></a>");
+
+                newDiv = $('<div>')
+                newDiv.attr('class', 'event')
+                newDiv.attr('id', 'event' + i)
+                var newA = "<a href='" + myData.events.event[i].url + "' target='_blank' alt='link to event' data-toggle='tooltip' data-placement='top' title='" + myData.events.event[i].title + "'><img class='thumbnail' src='"+ "/users" + "'></a>"
+                                                                                                                                                                                                                    //myData.events.event[i].image.medium.url                                                                                                                                                                                                    
+                var newButton = $('<button>')
+                newButton.attr('class', 'favorite-button');
+                newButton.attr('div-data', 'event' + i);
+                newButton.text('Favorite this event!')
+                newDiv.append(newA);
+                if(userLogged != undefined){
+                newDiv.append(newButton);
+            }
+                $("#events-response").append(newDiv);
+
             }
             
             //$("#linkmodal").show();
@@ -51,8 +70,6 @@ $(".cat").click(function (event) {
         .catch(() => console.log("Can’t access " + url + " response. Blocked by browser??"))
 
         $(".modalbox").hide();
-        
-
 });
 
 
@@ -64,4 +81,54 @@ $(".cat").click(function (event) {
       modal.style.display = "none";
     }
   }
- 
+
+//Open and close sidenav
+function w3_open() {
+    $("#mySidebar").show();
+}
+
+function w3_close() {
+    $("#mySidebar").hide();
+}
+
+//Open preferences modal
+$("#preferences").click(function (event) {
+    event.preventDefault();
+    $("#id01").show();
+})
+
+//Open login modal
+$("#login").click(function (event) {
+    event.preventDefault();
+    $("#login-modal").show();
+    $("#preferences").show().css("display", "block");
+    $("#logout").show().css("display", "block");
+})
+
+$('#login-btn').on('click', function () {
+    username = $("#username").val().trim();
+    password = $("#password").val().trim();
+    console.log("Reached project.js", username + "; " + password);
+    getCredentials();
+    sendLoginToDB();
+    $("#login-modal").modal('hide');
+});
+
+$("#register-btn").on('click', function () {
+    $("#signup-modal").modal('show');
+    $("#login-modal").modal('hide');
+});
+
+$('#signup-btn').on('click', function () {
+    newUsername = $("#newUsername").val().trim();
+    newPassword = $("#newPassword").val().trim();
+    console.log("Reached project.js", newUsername + "; " + newPassword);
+    getCredentials();
+    sendSignupToDB();
+    $("#signup-modal").modal('hide');
+});
+
+$("#logout").on('click', function(){
+    sendLogoutToDB();
+})
+
