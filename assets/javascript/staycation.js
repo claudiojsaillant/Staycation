@@ -3,7 +3,7 @@ $(document).ready(function () {
 
 });
 
-function getCredentials(){
+function getCredentials() {
     //because both js files are linked to index.html global variable declared on project.js are accessible in staycation.js
     console.log("This login is from staycation.js", username + " " + password);
     console.log("This signup is from staycation.js", newUsername + " " + newPassword);
@@ -51,8 +51,7 @@ var database = firebase.database();
 var userCount = 0;
 var isLogged;
 var userLogged;
-var favortiteArray = ['manuel'];
-var actualUserFav;
+var actualUserFav = [];
 var tryingToLog = false;
 database.ref('/userAuth').set({})
 
@@ -81,7 +80,7 @@ database.ref().on('value', function (snap) {
             idInDb = snap.val()[userRef].userid;
             pwdInDb = snap.val()[userRef].userpwd;
             if (currentid === idInDb) {
-                
+
                 if (currentpwd === pwdInDb && tryingToLog) {
                     tryingToLog = false;
 
@@ -100,7 +99,7 @@ database.ref().on('value', function (snap) {
                         isLogged: true
                     })
                 }
-              else  if (tryingToLog) {
+                else if (tryingToLog) {
                     alert('Incorrect password.')
                     $('#pwd-login').val('');
                     tryingToLog = false
@@ -227,10 +226,21 @@ $('#log-out').on('click', function () {
     })
     alert('User: ' + userLogged + ' has sign out.');
     userLogged = '';
+    actualUserFav = [];
     // $('#logbutton').show();
     $('#logform').show();
     $('#log-out').hide();
 })
+
+
+$(document).on('click', ".favorite-button", function () {
+    
+    console.log('hello')
+    var buttonDiv = $(this).attr('div-data')
+    var newFavorite = $('#' + buttonDiv);
+    $(this).remove();
+    newFavorite = newFavorite.html()
+
 
 function sendLogoutToDB(){
     $('#id-login').val('');
@@ -249,13 +259,27 @@ function sendLogoutToDB(){
 }
 
 $('#favorite').on('click', function () {
+
     var howLong = userLogged.length;
     var userNumber = userLogged.charAt(howLong - 1);
     var userRef = '/User' + userNumber + '/favorites';
+    var elementFav = '<div>' + newFavorite + '</div>';
+
+
+    actualUserFav.push(elementFav);
+    // making sure array doesnt have duplicates
+    var newArray = []
+    $.each(actualUserFav, function (i, el) {
+        if ($.inArray(el, newArray) === -1) newArray.push(el);
+    });
+
+    actualUserFav = newArray;
+    console.log(actualUserFav)
 
     database.ref(userRef).set({
-        favorite: JSON.stringify(favortiteArray)
+        favorite: JSON.stringify(actualUserFav)
     })
+
 })
 
 
