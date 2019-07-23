@@ -16,21 +16,27 @@
     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'
         integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>
     <link rel="stylesheet" href="assets/css/staycation.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet">
     <script src='https://code.jquery.com/jquery.js'></script>
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body id="staycation">
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+        <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+        <a href="#" class="w3-bar-item w3-button" id="login" data-toggle="modal" data-target="#login-modal">Log In</a>
+        <a href="#" class="w3-bar-item w3-button" id="preferences">Set Preferences</a>
+        <a href="#" class="w3-bar-item w3-button" id="logout">Log Out</a>
+    </div>
+    <button class="w3-button w3-white w3-xlarge" id="sidenav" onclick="w3_open()">☰</button>
     <div class="container">
         <header>
             <h1 class="stay-font">Staycation</h1>
@@ -76,9 +82,7 @@
             <div class="col-md-12" id="pick-your-place">
                 <h3>Know where you want to go?</h3>
             </div>
-
-
-
+            <!--These should be replaced with favorites-->
             <div class="row">
                 <div class="col-md-4">
                     <a href="https://www.stonemountainpark.com/" alt="link to Stone Mountain park" target="_blank"
@@ -99,23 +103,102 @@
                     </a>
                 </div>
             </div>
+
+            <!-- Login Modal -->
+            <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="loginTitle">Login to Staycation/Vacation</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="well">
+                                        <div id="loginForm" novalidate="novalidate">
+                                            <div class="form-group">
+                                                <label for="username" class="control-label">Username</label>
+                                                <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username" placeholder="example@gmail.com">
+                                                <span class="help-block"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="password" class="control-label">Password</label>
+                                                <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your password">
+                                                <span class="help-block"></span>
+                                            </div>
+                                            <div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
+
+                                            <button type="submit" class="btn btn-success btn-block" id="login-btn">Login</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="lead">Register now for <span class="text-success">FREE</span></p>
+                                    <ul class="list-unstyled" style="line-height: 2">
+                                        <li><span class="fa fa-check text-success"></span> Set you preferences</li>
+                                        <li><span class="fa fa-check text-success"></span> Save your favorites</li>
+                                        <li><span class="fa fa-check text-success"></span> Add reviews</li>
+                                    </ul>
+                                    <p><a href="#signup-modal" class="btn btn-info btn-block" id="register-btn">Register now!</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal" id="signup-modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Sign Up</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="signupForm" novalidate="novalidate">
+                                <div class="form-group">
+                                    <label for="username" class="control-label">Username</label>
+                                    <input type="text" class="form-control" id="newUsername" name="newUsername" value="" required="" title="Please enter you username" placeholder="Username">
+                                    <span class="help-block"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" class="control-label">Password</label>
+                                    <input type="password" class="form-control" id="newPassword" name="newPassword" value="" required="" title="Please enter your password">
+                                    <!--<input type="password" class="form-control" id="confirmPassword" name="confirmPassword" value="" required="" title="Confirm your password">-->
+                                    <span class="help-block"></span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="signup-btn">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="card-action">
 
 
-                    <button onclick="document.getElementById('login').style.display='block'"
+                    <button onclick="document.getElementById('log-in').style.display='block'"
                         class="w3-button w3-black">Log In</button>
 
-                    <div id="login" class="w3-modal">
+                    <div id="log-in" class="w3-modal">
                         <div class="w3-modal-content w3-card-4">
                             <header class="w3-container w3-teal">
-                                <span onclick="document.getElementById('login').style.display='none'"
+                                <span onclick="document.getElementById('log-in').style.display='none'"
                                     class="w3-button w3-display-topright">&times;</span>
                                 <h2>Just before you begin!!!</h2>
                             </header>
                             <div class="w3-container">
 
-                                <div class="card card-default" id="signupform">
+                                <div class="card card-default" id="signup-form">
                                     <div class="card-header">
                                         New Member Sign-Up
                                     </div>
@@ -148,13 +231,13 @@
                                         <form role="form">
                                             <div class="form-group row">
                                                 <label for="name-input">userID: </label>
-                                                <input class="form-control" id="id-login" type="text">
+                                                <input class="form-control" id="id-log-in" type="text">
                                             </div>
                                             <div class="form-group row">
                                                 <label for="email-input">Password: </label>
-                                                <input class="form-control" id="pwd-login" type="password">
+                                                <input class="form-control" id="pwd-log-in" type="password">
                                                 <input type="submit" id="log-button" class="btn btn-primary"
-                                                    value="LogIn!" />
+                                                    value="Log-In!" />
                                         </form>
                                     </div>
                                 </div>
@@ -169,7 +252,7 @@
 
                                 <button id="logmodal" class="w3-button w3-black">Sign In</button>
 
-                                <button id="logout" class="w3-button w3-black">Log Out</button>
+                                <button id="log-out" class="w3-button w3-black">Log Out</button>
 
                             </footer>
                         </div>

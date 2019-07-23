@@ -86,6 +86,8 @@ $("#preferences").click(function (event) {
 $("#login").click(function (event) {
     event.preventDefault();
     $("#login-modal").show();
+    $("#preferences").show().css("display", "block");
+    $("#logout").show().css("display", "block");
 })
 
 $('#login-btn').on('click', function () {
