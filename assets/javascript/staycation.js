@@ -240,7 +240,7 @@ $(document).on('click', ".favorite-button", function () {
     var newFavorite = $('#' + buttonDiv);
     $(this).remove();
     newFavorite = newFavorite.html()
-
+})
 
 function sendLogoutToDB(){
     $('#id-login').val('');
