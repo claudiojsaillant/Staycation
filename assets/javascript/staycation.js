@@ -154,6 +154,7 @@ $('#submitbutton').on('click', function (event) {
     }
 })
 
+
 function sendSignupToDB(){
     var userid = newUsername;
     var userpwd = newPassword;
@@ -178,7 +179,8 @@ function sendSignupToDB(){
     }
 }
 
-$('#logbutton').on('click', function (event) {
+$('#log-button').on('click', function (event) {
+
     event.preventDefault();
     tryingToLog = true;
     //var logid = $('#id-login').val().trim();
