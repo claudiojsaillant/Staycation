@@ -28,8 +28,8 @@ $(".cat").click(function (event) {
     var queryURL = "http://api.eventful.com/json/events/search?keywords=" + keyword + "&location=" + place + "&date=" + when + "&app_key=DzrBFd4tkfmKkSSH"
     var eventData = '';
 
-    const proxyurl = "https://cors-anywhere.herokuapp.com/";
-    const url = queryURL;
+    const proxyurl = "https://-anywhere.herokuapp.com/";
+    const url = queryURL;cors
     fetch(proxyurl + url)
         .then(response => response.text())
         .then(function (data) {
