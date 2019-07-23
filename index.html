@@ -1,29 +1,204 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="assets/css/resetCss.css">
-        <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>
-        <link rel="stylesheet" href="assets/css/styles.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-        <script src='https://code.jquery.com/jquery.js'></script>    
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js' integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous'></script>
-        <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous'></script>
-        <script src="assets/javascript/project.js" async defer></script>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
 
-    </body>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/resetCss.css">
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'
+          integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css?family=Barlow|Courgette&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <script src='https://code.jquery.com/jquery.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+</head>
+
+<body class="body">
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a>
+    to improve your experience.</p>
+<![endif]-->
+<!-- Sidebar -->
+<div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+    <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+    <a href="#" class="w3-bar-item w3-button" id="login" data-toggle="modal" data-target="#login-modal">Log In</a>
+    <a href="#" class="w3-bar-item w3-button" id="preferences">Set Preferences</a>
+    <a href="#" class="w3-bar-item w3-button" id="logout">Log Out</a>
+</div>
+<button class="w3-button w3-white w3-xlarge" id="sidenav" onclick="w3_open()">☰</button>
+<div class="container">
+    <div class="row white-text">
+        <div class="mx-auto">
+            <h1><span id="stay">Staycation</span> or <span id="vay">Vacation</span></h1>
+        </div>
+
+
+    </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-xl-10">
+            <div class="card blue-grey darken-1" id="transparent-card">
+                <div class="card-content white-text">
+                    <span class="card-title">Stay and Play or Need to Get Away?</span>
+                    <p>Need to get away but don’t know where to go or what to do? What if you need to get away but
+                        don’t have time to take a big trip? What if you have time but have no inspiration? That’s
+                        where the Staycation/Vacation app comes in. This app helps you find places of interest to
+                        visit or events based on your location, distance willing to travel, and preferences. You can
+                        use this app to discover new places to visit, rate places you have visited, see other
+                        people’s reviews, and find nearby food options. If you want to go further you can switch to
+                        vacation mode to search flight prices, hotels, rental car, and public transportation for
+                        your destination. Whether you want to stay close to home or roam the globe, this app is here
+                        for you.</p>
+                </div>
+                <div class="card-action">
+
+
+                    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">
+                        Set Preferences
+                    </button>
+
+                    <div id="id01" class="w3-modal">
+                        <div class="w3-modal-content w3-card-4">
+                            <header class="w3-container w3-teal">
+                                          <span onclick="document.getElementById('id01').style.display='none'"
+                                                class="w3-button w3-display-topright">&times;</span>
+                                <h2>Just before you begin!!!</h2>
+                            </header>
+                            <div class="w3-container">
+                                <p>Area for the preferneces sheet</p>
+                                <p>Click on the "x" or click anywhere outside of the modal!</p>
+                            </div>
+                            <footer class="w3-container w3-teal">
+                                <!-- <p>Modal Footer</p> -->
+                                <button onclick="document.getElementById('id02').style.display='block'"
+                                        class="w3-button w3-black">Sign Up
+                                </button>
+
+                                <button onclick="document.getElementById('id03').style.display='block'"
+                                        class="w3-button w3-black">Sign In
+                                </button>
+
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+
+
+                <a href="staycation.html" class="btn btn-primary btn-lg active" role="button"
+                   aria-disabled="true">Staycation</a>
+                <a href="vacation.html" class="btn btn-success btn-lg active" role="button"
+                   aria-disabled="true">Vacation</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginTitle">Login to Staycation/Vacation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="well">
+                                <div id="loginForm" novalidate="novalidate">
+                                    <div class="form-group">
+                                        <label for="username" class="control-label">Username</label>
+                                        <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username" placeholder="example@gmail.com">
+                                        <span class="help-block"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password" class="control-label">Password</label>
+                                        <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your password">
+                                        <span class="help-block"></span>
+                                    </div>
+                                    <div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
+
+                                    <button type="submit" class="btn btn-success btn-block" id="login-btn">Login</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="lead">Register now for <span class="text-success">FREE</span></p>
+                            <ul class="list-unstyled" style="line-height: 2">
+                                <li><span class="fa fa-check text-success"></span> Set you preferences</li>
+                                <li><span class="fa fa-check text-success"></span> Save your favorites</li>
+                                <li><span class="fa fa-check text-success"></span> Add reviews</li>
+                            </ul>
+                            <p><a href="#signup-modal" class="btn btn-info btn-block" id="register-btn">Register now!</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="signup-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sign Up</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="signupForm" novalidate="novalidate">
+                        <div class="form-group">
+                            <label for="username" class="control-label">Username</label>
+                            <input type="text" class="form-control" id="newUsername" name="newUsername" value="" required="" title="Please enter you username" placeholder="Username">
+                            <span class="help-block"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="control-label">Password</label>
+                            <input type="password" class="form-control" id="newPassword" name="newPassword" value="" required="" title="Please enter your password">
+                            <!--<input type="password" class="form-control" id="confirmPassword" name="confirmPassword" value="" required="" title="Confirm your password">-->
+                            <span class="help-block"></span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="signup-btn">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'
+        integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1'
+        crossorigin='anonymous'></script>
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'
+        integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM'
+        crossorigin='anonymous'></script>
+<script src="assets/javascript/project.js"></script>
+<script src="assets/javascript/staycation.js"></script>
+<script src="https://kit.fontawesome.com/3545519c23.js"></script>
+
+</body>
+
 </html>
