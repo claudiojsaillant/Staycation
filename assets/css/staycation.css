@@ -6,14 +6,13 @@ body{
 }
 
 .stay-font{
-    /* font-family: 'Barlow', sans-serif; */
     font-family: 'Abril Fatface', cursive;
     -webkit-text-stroke: 0.25px white;
     color: black;
     font-size: 4rem;
 }
 
-p, h1, h2, h3, h4, h5 a{
+p, h1, h2, h3, h4, h5{
     font-family: 'Abril Fatface', cursive;
 }
 
@@ -144,9 +143,8 @@ span a{
     border: 2px solid #fff;
 }
 
-.w3-button{
-    font-family: 'Abril Fatface', cursive;
-    font-size: 20px;
+#login, #preferences, #logout, #login-modal, #signup-modal{
+    color: black;
 }
 
 @media screen and (max-width: 450px) {
