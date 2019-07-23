@@ -3,11 +3,7 @@ $(document).ready(function () {
 
 });
 
-<<<<<<< HEAD
 function getCredentials(){
-=======
-function getCredentials() {
->>>>>>> 9bd3e1b108577b8e743bacddcaa8451881b78153
     //because both js files are linked to index.html global variable declared on project.js are accessible in staycation.js
     console.log("This login is from staycation.js", username + " " + password);
     console.log("This signup is from staycation.js", newUsername + " " + newPassword);
@@ -55,12 +51,8 @@ var database = firebase.database();
 var userCount = 0;
 var isLogged;
 var userLogged;
-<<<<<<< HEAD
 var favortiteArray = ['manuel'];
 var actualUserFav;
-=======
-var actualUserFav = [];
->>>>>>> 9bd3e1b108577b8e743bacddcaa8451881b78153
 var tryingToLog = false;
 database.ref('/userAuth').set({})
 
@@ -89,11 +81,7 @@ database.ref().on('value', function (snap) {
             idInDb = snap.val()[userRef].userid;
             pwdInDb = snap.val()[userRef].userpwd;
             if (currentid === idInDb) {
-<<<<<<< HEAD
                 
-=======
-
->>>>>>> 9bd3e1b108577b8e743bacddcaa8451881b78153
                 if (currentpwd === pwdInDb && tryingToLog) {
                     tryingToLog = false;
 
@@ -112,11 +100,7 @@ database.ref().on('value', function (snap) {
                         isLogged: true
                     })
                 }
-<<<<<<< HEAD
               else  if (tryingToLog) {
-=======
-                else if (tryingToLog) {
->>>>>>> 9bd3e1b108577b8e743bacddcaa8451881b78153
                     alert('Incorrect password.')
                     $('#pwd-login').val('');
                     tryingToLog = false
@@ -243,28 +227,11 @@ $('#log-out').on('click', function () {
     })
     alert('User: ' + userLogged + ' has sign out.');
     userLogged = '';
-<<<<<<< HEAD
-=======
-    actualUserFav = [];
->>>>>>> 9bd3e1b108577b8e743bacddcaa8451881b78153
     // $('#logbutton').show();
     $('#logform').show();
     $('#log-out').hide();
 })
 
-<<<<<<< HEAD
-=======
-
-$(document).on('click', ".favorite-button", function () {
-    
-    console.log('hello')
-    var buttonDiv = $(this).attr('div-data')
-    var newFavorite = $('#' + buttonDiv);
-    $(this).remove();
-    newFavorite = newFavorite.html()
-})
-
->>>>>>> 9bd3e1b108577b8e743bacddcaa8451881b78153
 function sendLogoutToDB(){
     $('#id-login').val('');
     $('#pwd-login').val('');
@@ -282,7 +249,6 @@ function sendLogoutToDB(){
 }
 
 $('#favorite').on('click', function () {
-<<<<<<< HEAD
     var howLong = userLogged.length;
     var userNumber = userLogged.charAt(howLong - 1);
     var userRef = '/User' + userNumber + '/favorites';
@@ -290,29 +256,6 @@ $('#favorite').on('click', function () {
     database.ref(userRef).set({
         favorite: JSON.stringify(favortiteArray)
     })
-=======
-
-    var howLong = userLogged.length;
-    var userNumber = userLogged.charAt(howLong - 1);
-    var userRef = '/User' + userNumber + '/favorites';
-    var elementFav = '<div>' + newFavorite + '</div>';
-
-
-    actualUserFav.push(elementFav);
-    // making sure array doesnt have duplicates
-    var newArray = []
-    $.each(actualUserFav, function (i, el) {
-        if ($.inArray(el, newArray) === -1) newArray.push(el);
-    });
-
-    actualUserFav = newArray;
-    console.log(actualUserFav)
-
-    database.ref(userRef).set({
-        favorite: JSON.stringify(actualUserFav)
-    })
-
->>>>>>> 9bd3e1b108577b8e743bacddcaa8451881b78153
 })
 
 
