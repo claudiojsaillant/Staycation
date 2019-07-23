@@ -46,7 +46,26 @@ $(".cat").click(function (event) {
             $("#events-response").append("<div><h4 id='key'>" + keyword + "</h4></div>");
             
             for (var i = 0; i < 15; i++) {
+<<<<<<< HEAD
                 $("#events-response").append("<a href='"+ myData.events.event[i].url + "' target='_blank' alt='link to event' data-toggle='tooltip' data-placement='top' title='" + myData.events.event[i].title + "'><img class='thumbnail' src='"+ myData.events.event[i].image.medium.url + "'></a>");
+=======
+
+                newDiv = $('<div>')
+                newDiv.attr('class', 'event')
+                newDiv.attr('id', 'event' + i)
+                var newA = "<a href='" + myData.events.event[i].url + "' target='_blank' alt='link to event' data-toggle='tooltip' data-placement='top' title='" + myData.events.event[i].title + "'><img class='thumbnail' src='"+ "/users" + "'></a>"
+                                                                                                                                                                                                                    //myData.events.event[i].image.medium.url                                                                                                                                                                                                    
+                var newButton = $('<button>')
+                newButton.attr('class', 'favorite-button');
+                newButton.attr('div-data', 'event' + i);
+                newButton.text('Favorite this event!')
+                newDiv.append(newA);
+                if(userLogged != undefined){
+                newDiv.append(newButton);
+            }
+                $("#events-response").append(newDiv);
+
+>>>>>>> 9bd3e1b108577b8e743bacddcaa8451881b78153
             }
             
             //$("#linkmodal").show();
@@ -55,8 +74,11 @@ $(".cat").click(function (event) {
         .catch(() => console.log("Can’t access " + url + " response. Blocked by browser??"))
 
         $(".modalbox").hide();
+<<<<<<< HEAD
         
 
+=======
+>>>>>>> 9bd3e1b108577b8e743bacddcaa8451881b78153
 });
 
 
