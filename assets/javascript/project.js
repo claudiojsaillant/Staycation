@@ -16,6 +16,8 @@
 var keyword = 'food';
 var username;
 var password;
+var newUsername;
+var newPassword;
 
 $(".cat").click(function (event) {
     event.preventDefault();
