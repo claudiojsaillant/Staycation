@@ -6,14 +6,13 @@ body{
 }
 
 .stay-font{
-    /* font-family: 'Barlow', sans-serif; */
     font-family: 'Abril Fatface', cursive;
     -webkit-text-stroke: 0.25px white;
     color: black;
     font-size: 4rem;
 }
 
-p, h1, h2, h3, h4, h5 a{
+p, h1, h2, h3, h4, h5{
     font-family: 'Abril Fatface', cursive;
 }
 
@@ -34,9 +33,10 @@ img{
     }
     .modalbox .title {
     border-bottom: 1px solid #ccc;
-    font-family: verdana;
+    text-transform: capitalize;
+    font-family: 'Abril Fatface', cursive;
     font-size: 22px;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.01em;
     margin: 0;
     padding: 0 0 10px;
     text-transform: uppercase;
@@ -143,9 +143,8 @@ span a{
     border: 2px solid #fff;
 }
 
-.w3-button{
-    font-family: 'Abril Fatface', cursive;
-    font-size: 20px;
+#login, #preferences, #logout, #login-modal, #signup-modal{
+    color: black;
 }
 
 @media screen and (max-width: 450px) {
