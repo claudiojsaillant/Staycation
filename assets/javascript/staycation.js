@@ -280,11 +280,4 @@ function sendLogoutToDB(){
     $("#logout").hide();
 }
 
-/*function addFavorite() {
-
-    if (favoriteMode === true && newFavorite != null && newFavorite != undefined) {
-
-        console.log(newArray);
-        localStorage.setItem("array", JSON.stringify(mainObject.favorites));
-    }
-}*/
+    

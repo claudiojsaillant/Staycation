@@ -144,9 +144,8 @@ span a{
     border: 2px solid #fff;
 }
 
-.w3-button{
-    font-family: 'Abril Fatface', cursive;
-    font-size: 20px;
+#login, #home-page, #vay-page, #preferences, #logout, #login-modal, #signup-modal{
+    color: black;
 }
 
 @media screen and (max-width: 450px) {
