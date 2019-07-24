@@ -90,7 +90,6 @@ database.ref().on('value', function (snap) {
                     $('#logform').hide();
                     $('#log-out').show();
                     $("#login").hide();
-                    $("#preferences").show().css("display", "block");
                     $("#logout").show().css("display", "block");
                     database.ref('/userAuth').set({})
                     isLogged = true;
@@ -210,8 +209,6 @@ function sendLoginToDB(){
             userid: logid,
             userpwd: logpwd
         })
-        //alert(username + ' is logged in');
-        // $("#login").hide();
     }
     else if (tryingToLog) {
         alert('Input a valid userID/Pasword')
@@ -276,7 +273,6 @@ function sendLogoutToDB(){
     alert('User: ' + userLogged + ' has sign out.');
     userLogged = '';
     $("#login").show();
-    $("#preferences").hide();
     $("#logout").hide();
 }
 
