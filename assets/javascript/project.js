@@ -48,7 +48,7 @@ $(".cat").click(function (event) {
                 newDiv = $('<div>')
                 newDiv.attr('class', 'event')
                 newDiv.attr('id', 'event' + i)
-                var newA = "<a href='" + myData.events.event[i].url + "' target='_blank' alt='link to event' data-toggle='tooltip' data-placement='top' title='" + myData.events.event[i].title + "'><img class='thumbnail' src='"+ "/users" + "'></a>"
+                var newA = "<a href='" + myData.events.event[i].url + "' target='_blank' alt='link to event' data-toggle='tooltip' data-placement='top' title='" + myData.events.event[i].title + "'><img class='thumbnail' src='"+ myData.events.event[i].image.medium.url + "'></a>"
                                                                                                                                                                                                                     //myData.events.event[i].image.medium.url                                                                                                                                                                                                    
                 var newButton = $('<button>')
                 newButton.attr('class', 'favorite-button');
