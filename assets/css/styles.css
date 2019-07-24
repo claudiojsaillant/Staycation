@@ -33,11 +33,3 @@
     background-color: rgba(250,250,250,0);
     max-height: 75%;
 }
-
-#preferences{
-    display: none;
-}
-
-#logout{
-    display: none;
-}

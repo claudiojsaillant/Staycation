@@ -3,7 +3,7 @@ $(document).ready(function () {
 
 });
 
-function getCredentials(){
+function getCredentials() {
     //because both js files are linked to index.html global variable declared on project.js are accessible in staycation.js
     console.log("This login is from staycation.js", username + " " + password);
     console.log("This signup is from staycation.js", newUsername + " " + newPassword);
@@ -51,8 +51,7 @@ var database = firebase.database();
 var userCount = 0;
 var isLogged;
 var userLogged;
-var favortiteArray = ['manuel'];
-var actualUserFav;
+var actualUserFav = [];
 var tryingToLog = false;
 database.ref('/userAuth').set({})
 
@@ -81,7 +80,7 @@ database.ref().on('value', function (snap) {
             idInDb = snap.val()[userRef].userid;
             pwdInDb = snap.val()[userRef].userpwd;
             if (currentid === idInDb) {
-                
+
                 if (currentpwd === pwdInDb && tryingToLog) {
                     tryingToLog = false;
 
@@ -89,7 +88,7 @@ database.ref().on('value', function (snap) {
                     alert(userLogged + " Has loged in to the webpage!");
                     $('#logbutton').hide();
                     $('#logform').hide();
-                    $('#log-out').show();
+                    $('#logout').show();
                     database.ref('/userAuth').set({})
                     isLogged = true;
                     if (snap.child(favRef).exists()) {
@@ -100,7 +99,7 @@ database.ref().on('value', function (snap) {
                         isLogged: true
                     })
                 }
-              else  if (tryingToLog) {
+                else if (tryingToLog) {
                     alert('Incorrect password.')
                     $('#pwd-login').val('');
                     tryingToLog = false
@@ -131,8 +130,8 @@ database.ref('/userCount').on('value', function (snap) {
 
 $('#submitbutton').on('click', function (event) {
     event.preventDefault();
-    //var userid = $('#id-input').val().trim();
-    //var userpwd = $('#pwd-input').val().trim();
+    var userid = $('#id-input').val().trim();
+    var userpwd = $('#pwd-input').val().trim();
     if (userid != '' && userpwd != '') {
         userCount++;
         printID = userid + userCount;
@@ -153,38 +152,12 @@ $('#submitbutton').on('click', function (event) {
         alert('Input a valid userID/Pasword')
     }
 })
-
-
-function sendSignupToDB(){
-    var userid = newUsername;
-    var userpwd = newPassword;
-    if (userid != '' && userpwd != '') {
-        userCount++;
-        printID = userid + userCount;
-        $('#id-input').val('');
-        $('#pwd-input').val('');
-        alert("Your generated user id is : " + printID + " , when you log in, you have to use this ID with your password!");
-        database.ref('/userCount').set({
-            userCount: userCount
-        })
-        var newUserRef = database.ref('/User' + userCount)
-        userid = userid + userCount;
-        newUserRef.set({
-            userid: userid,
-            userpwd: userpwd
-        })
-    }
-    else {
-        alert('Input a valid userID/Pasword')
-    }
-}
 
 $('#log-button').on('click', function (event) {
-
     event.preventDefault();
     tryingToLog = true;
-    //var logid = $('#id-login').val().trim();
-    //var logpwd = $('#pwd-login').val().trim();
+    var logid = $('#id-login').val().trim();
+    var logpwd = $('#pwd-login').val().trim();
 
     if (logid != '' && logpwd != '') {
         database.ref('/userAuth').set({
@@ -197,26 +170,8 @@ $('#log-button').on('click', function (event) {
     }
 })
 
-function sendLoginToDB(){
-    tryingToLog = true;
-    var logid = username;
-    var logpwd = password;
-
-    if (logid != '' && logpwd != '') {
-        database.ref('/userAuth').set({
-            userid: logid,
-            userpwd: logpwd
-        })
-        alert(username + ' is logged in');
-        $("#login").hide();
-    }
-    else if (tryingToLog) {
-        alert('Input a valid userID/Pasword')
-    }
-}
-
-$('#log-out').hide();
-$('#log-out').on('click', function () {
+$('#logout').hide();
+$('#logout').on('click', function () {
     $('#id-login').val('')
     $('#pwd-login').val('')
     actualUserFav = [];
@@ -227,35 +182,48 @@ $('#log-out').on('click', function () {
     })
     alert('User: ' + userLogged + ' has sign out.');
     userLogged = '';
+    actualUserFav = [];
     // $('#logbutton').show();
     $('#logform').show();
-    $('#log-out').hide();
+    $('#logout').hide();
 })
 
-function sendLogoutToDB(){
-    $('#id-login').val('');
-    $('#pwd-login').val('');
-    actualUserFav = [];
-    isLogged = false;
-    loggedRef = '/User' + userLogged.charAt(userLogged.length - 1) + '/isLogged';
-    database.ref(loggedRef).set({
-        isLogged: false
-    })
-    alert('User: ' + userLogged + ' has sign out.');
-    userLogged = '';
-    $("#login").show();
-    $("#preferences").hide();
-    $("#logout").hide();
-}
+$(document).on('click', ".favorite-button", function () {
+    
+    console.log('hello')
+    var buttonDiv = $(this).attr('div-data')
+    var newFavorite = $('#' + buttonDiv);
+    $(this).remove();
+    newFavorite = newFavorite.html()
 
-$('#favorite').on('click', function () {
     var howLong = userLogged.length;
     var userNumber = userLogged.charAt(howLong - 1);
     var userRef = '/User' + userNumber + '/favorites';
+    var elementFav = '<div>' + newFavorite + '</div>';
+
+
+    actualUserFav.push(elementFav);
+    // making sure array doesnt have duplicates
+    var newArray = []
+    $.each(actualUserFav, function (i, el) {
+        if ($.inArray(el, newArray) === -1) newArray.push(el);
+    });
+
+    actualUserFav = newArray;
+    console.log(actualUserFav)
 
     database.ref(userRef).set({
-        favorite: JSON.stringify(favortiteArray)
+        favorite: JSON.stringify(actualUserFav)
     })
+
 })
 
 
+function addFavorite() {
+
+    if (favoriteMode === true && newFavorite != null && newFavorite != undefined) {
+
+        console.log(newArray);
+        localStorage.setItem("array", JSON.stringify(mainObject.favorites));
+    }
+}
