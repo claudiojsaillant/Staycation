@@ -143,7 +143,7 @@ span a{
     border: 2px solid #fff;
 }
 
-#login, #preferences, #logout, #login-modal, #signup-modal{
+#login, #home-page, #vay-page, #preferences, #logout, #login-modal, #signup-modal{
     color: black;
 }
 

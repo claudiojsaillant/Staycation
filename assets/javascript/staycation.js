@@ -283,29 +283,5 @@ function sendLogoutToDB(){
     $("#preferences").hide();
     $("#logout").hide();
 }
-/*
-$('#favorite').on('click', function () {
-
-    var howLong = userLogged.length;
-    var userNumber = userLogged.charAt(howLong - 1);
-    var userRef = '/User' + userNumber + '/favorites';
-    var elementFav = '<div>' + newFavorite + '</div>';
-
-
-    actualUserFav.push(elementFav);
-    // making sure array doesnt have duplicates
-    var newArray = []
-    $.each(actualUserFav, function (i, el) {
-        if ($.inArray(el, newArray) === -1) newArray.push(el);
-    });
-
-    actualUserFav = newArray;
-    console.log(actualUserFav)
-
-    database.ref(userRef).set({
-        favorite: JSON.stringify(actualUserFav)
-    })
-
-})*/
 
 
