@@ -105,7 +105,6 @@ database.ref().on('value', function (snap) {
                     alert('Incorrect password.')
                     $('#pwd-login').val('');
                     tryingToLog = false;
-                    //$("#login-modal").show();
                 }
             }
             else if (tryingToLog) {
@@ -113,7 +112,6 @@ database.ref().on('value', function (snap) {
                 $('#id-login').val('');
                 $('#pwd-login').val('');
                 tryingToLog = false;
-                //$("#login-modal").show();
             }
         }
         else if (tryingToLog) {
@@ -121,7 +119,6 @@ database.ref().on('value', function (snap) {
             $('#id-login').val('');
             $('#pwd-login').val('');
             tryingToLog = false;
-            //$("#login-modal").show();
         }
     }
 
@@ -130,31 +127,6 @@ database.ref().on('value', function (snap) {
 database.ref('/userCount').on('value', function (snap) {
     if (snap.child("/userCount").exists()) {
         userCount = snap.val().userCount
-    }
-})
-
-$('#submitbutton').on('click', function (event) {
-    event.preventDefault();
-    //var userid = $('#id-input').val().trim();
-    //var userpwd = $('#pwd-input').val().trim();
-    if (userid != '' && userpwd != '') {
-        userCount++;
-        printID = userid + userCount;
-        $('#id-input').val('');
-        $('#pwd-input').val('');
-        alert("Your generated user id is : " + printID + " , when you log in, you have to use this ID with your password!");
-        database.ref('/userCount').set({
-            userCount: userCount
-        })
-        var newUserRef = database.ref('/User' + userCount)
-        userid = userid + userCount;
-        newUserRef.set({
-            userid: userid,
-            userpwd: userpwd
-        })
-    }
-    else {
-        alert('Input a valid userID/Pasword')
     }
 })
 
@@ -182,23 +154,6 @@ function sendSignupToDB(){
     }		
 }
 
-$('#log-button').on('click', function (event) {
-    event.preventDefault();
-    tryingToLog = true;
-    //var logid = $('#id-login').val().trim();
-    //var logpwd = $('#pwd-login').val().trim();
-
-    if (logid != '' && logpwd != '') {
-        database.ref('/userAuth').set({
-            userid: logid,
-            userpwd: logpwd
-        })
-    }
-    else if (tryingToLog) {
-        alert('Input a valid userID/Pasword')
-    }
-})
-
 function sendLoginToDB(){
     tryingToLog = true;
     var logid = username;
@@ -214,24 +169,6 @@ function sendLoginToDB(){
         alert('Input a valid userID/Pasword')
     }
 }
-
-$('#log-out').hide();
-$('#log-out').on('click', function () {
-    $('#id-login').val('')
-    $('#pwd-login').val('')
-    actualUserFav = [];
-    isLogged = false
-    loggedRef = '/User' + userLogged.charAt(userLogged.length - 1) + '/isLogged';
-    database.ref(loggedRef).set({
-        isLogged: false
-    })
-    alert('User: ' + userLogged + ' has sign out.');
-    userLogged = '';
-    actualUserFav = [];
-    // $('#logbutton').show();
-    $('#logform').show();
-    $('#logout').hide();
-})
 
 $(document).on('click', ".favorite-button", function () {
     

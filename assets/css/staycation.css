@@ -6,7 +6,6 @@ body{
 }
 
 .stay-font{
-    /* font-family: 'Barlow', sans-serif; */
     font-family: 'Abril Fatface', cursive;
     -webkit-text-stroke: 0.25px white;
     color: black;
