@@ -16,8 +16,6 @@
 var keyword = 'food';
 var username;
 var password;
-var newUsername;
-var newPassword;
 
 $(".cat").click(function (event) {
     event.preventDefault();
@@ -50,7 +48,7 @@ $(".cat").click(function (event) {
                 newDiv = $('<div>')
                 newDiv.attr('class', 'event')
                 newDiv.attr('id', 'event' + i)
-                var newA = "<a href='" + myData.events.event[i].url + "' target='_blank' alt='link to event' data-toggle='tooltip' data-placement='top' title='" + myData.events.event[i].title + "'><img class='thumbnail' src='"+ "/users" + "'></a>"
+                var newA = "<a href='" + myData.events.event[i].url + "' target='_blank' alt='link to event' data-toggle='tooltip' data-placement='top' title='" + myData.events.event[i].title + "'><img class='thumbnail' src='"+ myData.events.event[i].image.medium.url + "'></a>"
                                                                                                                                                                                                                     //myData.events.event[i].image.medium.url                                                                                                                                                                                                    
                 var newButton = $('<button>')
                 newButton.attr('class', 'favorite-button');
@@ -81,4 +79,46 @@ $(".cat").click(function (event) {
       modal.style.display = "none";
     }
   }
- 
+
+//Open and close sidenav
+function w3_open() {
+    $("#mySidebar").show();
+}
+
+function w3_close() {
+    $("#mySidebar").hide();
+}
+
+//Open preferences modal
+$("#preferences").click(function (event) {
+    event.preventDefault();
+    $("#id01").show();
+})
+
+//Open login modal
+$("#login").click(function (event) {
+    event.preventDefault();
+    $("#login-modal").show();
+})
+
+$('#login-btn').on('click', function () {
+    username = $("#username").val().trim();
+    password = $("#password").val().trim();
+    console.log("Reached project.js", username + "; " + password);
+    getCredentials();
+    $("#login-modal").modal('hide');
+});
+
+$("#register-btn").on('click', function () {
+    $("#signup-modal").modal('show');
+    $("#login-modal").modal('hide');
+});
+
+$('#signup-btn').on('click', function () {
+    newUsername = $("#newUsername").val().trim();
+    newPassword = $("#newPassword").val().trim();
+    console.log("Reached project.js", newUsername + "; " + newPassword);
+    getCredentials();
+    $("#signup-modal").modal('hide');
+});
+
