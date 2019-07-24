@@ -16,8 +16,6 @@
 var keyword = 'food';
 var username;
 var password;
-var newUsername;
-var newPassword;
 
 $(".cat").click(function (event) {
     event.preventDefault();
@@ -101,8 +99,6 @@ $("#preferences").click(function (event) {
 $("#login").click(function (event) {
     event.preventDefault();
     $("#login-modal").show();
-    // $("#preferences").show().css("display", "block");
-    // $("#logout").show().css("display", "block");
 })
 
 $('#login-btn').on('click', function () {
@@ -110,7 +106,6 @@ $('#login-btn').on('click', function () {
     password = $("#password").val().trim();
     console.log("Reached project.js", username + "; " + password);
     getCredentials();
-    sendLoginToDB();
     $("#login-modal").modal('hide');
 });
 
@@ -124,11 +119,6 @@ $('#signup-btn').on('click', function () {
     newPassword = $("#newPassword").val().trim();
     console.log("Reached project.js", newUsername + "; " + newPassword);
     getCredentials();
-    sendSignupToDB();
     $("#signup-modal").modal('hide');
 });
-
-$("#logout").on('click', function(){
-    sendLogoutToDB();
-})
 
