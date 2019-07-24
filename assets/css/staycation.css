@@ -106,11 +106,20 @@ img{
     margin-top: 30px;
 }
 
-#pick-your-place{
+/* #pick-your-place, #pick-your-favorite{
+    padding-top: 200px;
+} */
+
+#picks{
     padding-top: 200px;
 }
 
 #pick-your-place h3{
+    font-family: 'Abril Fatface', cursive;
+    font-size: 2rem;
+}
+
+#pick-your-favorite h3{
     font-family: 'Abril Fatface', cursive;
     font-size: 2rem;
 }
@@ -138,7 +147,7 @@ span a{
 }
 
 .thumbnail{
-    width: 30%;
+    width: 100%;
     margin: 5px;
     border: 2px solid #fff;
 }
@@ -159,7 +168,15 @@ span a{
         
     }
 
-    #pick-your-place {
+    /* #pick-your-place{
+        padding-top: 240px;
+    }
+
+    #pick-your-favorite{
+        padding-top: 240px;
+    } */
+
+    #picks{
         padding-top: 240px;
     }
  }

@@ -104,10 +104,7 @@ database.ref().on('value', function (snap) {
                     localStorage.setItem("userid", currentid);
                     localStorage.setItem("userpwd", currentpwd);
                     console.log(currentid + " and " + currentpwd + " saved to local");
-                    
-                    $('#logbutton').hide();
-                    $('#logform').hide();
-                    $('#log-out').show();
+                                      
                     $("#login").hide();
                     $('#logout').text('Log Out, ' + currentid);
                     $("#logout").show().css("display", "block");
@@ -116,6 +113,9 @@ database.ref().on('value', function (snap) {
                     if (snap.child(favRef).exists()) {
                         actualUserFav = snap.val()[userRef].favorites.favorite;
                         actualUserFav = JSON.parse(actualUserFav);
+                        $.each(actualUserFav, function (i, el) {
+                            $("#favorite").append($("<div class='col-md-4 newFav'>").html(el));
+                        });                        
                     }
                     database.ref(childRef + '/isLogged').set({
                         isLogged: true
