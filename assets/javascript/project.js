@@ -75,7 +75,8 @@ $("#login").click(function (event) {
 })
 
 //Login button click
-$('#login-btn').on('click', function () {
+$('#login-btn').on('click', function (event) {
+    event.preventDefault();
     username = $("#username").val().trim();
     password = $("#password").val().trim();
     console.log("Reached project.js", username + "; " + password);
@@ -91,7 +92,8 @@ $("#register-btn").on('click', function () {
 });
 
 //Sign up button click
-$('#signup-btn').on('click', function () {
+$('#signup-btn').on('click', function (event) {
+    event.preventDefault();
     newUsername = $("#newUsername").val().trim();
     newPassword = $("#newPassword").val().trim();
     console.log("Reached project.js", newUsername + "; " + newPassword);

@@ -53,9 +53,24 @@ var isLogged;
 var userLogged;
 var actualUserFav = [];
 var tryingToLog = false;
-database.ref('/userAuth').set({})
+
+userInLocal = localStorage.getItem("userid");
+passwordInLocal = localStorage.getItem("userpwd");
+
+if(userInLocal != undefined && passwordInLocal != undefined){
+    username = userInLocal;
+    password = passwordInLocal;
+    sendLoginToDB();
+  
+    
+}
+else{
+    database.ref('/userAuth').set({});
+};
+
 
 database.ref().on('value', function (snap) {
+    
     var userRef;
     if (userLogged != undefined) {
         var howLong = userLogged.length;
@@ -67,6 +82,7 @@ database.ref().on('value', function (snap) {
             actualUserFav = JSON.parse(actualUserFav);
         }
     }
+    console.log(snap.child("/userAuth").exists());
     if (snap.child("/userAuth").exists()) {
         var currentid = snap.val().userAuth.userid;
         var currentpwd = snap.val().userAuth.userpwd;
@@ -85,11 +101,15 @@ database.ref().on('value', function (snap) {
                     tryingToLog = false;
 
                     userLogged = idInDb;
-                    alert(userLogged + " Has loged in to the webpage!");
+                    localStorage.setItem("userid", currentid);
+                    localStorage.setItem("userpwd", currentpwd);
+                    console.log(currentid + " and " + currentpwd + " saved to local");
+                    
                     $('#logbutton').hide();
                     $('#logform').hide();
                     $('#log-out').show();
                     $("#login").hide();
+                    $('#logout').text('Log Out, ' + currentid);
                     $("#logout").show().css("display", "block");
                     database.ref('/userAuth').set({})
                     isLogged = true;
@@ -160,6 +180,8 @@ function sendLoginToDB(){
     var logpwd = password;
 
     if (logid != '' && logpwd != '') {
+        
+        console.log(logid + " " + logpwd);
         database.ref('/userAuth').set({
             userid: logid,
             userpwd: logpwd
@@ -199,6 +221,8 @@ $(document).on('click', ".favorite-button", function () {
 });
 
 function sendLogoutToDB(){
+    localStorage.clear();
+    $('#password').val('');
     $('#id-login').val('');
     $('#pwd-login').val('');
     actualUserFav = [];
@@ -207,10 +231,10 @@ function sendLogoutToDB(){
     database.ref(loggedRef).set({
         isLogged: false
     })
-    alert('User: ' + userLogged + ' has sign out.');
     userLogged = '';
     $("#login").show();
     $("#logout").hide();
 }
+
 
     
