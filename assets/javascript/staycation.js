@@ -61,7 +61,8 @@ if(userInLocal != undefined && passwordInLocal != undefined){
     username = userInLocal;
     password = passwordInLocal;
     sendLoginToDB();
-    console.log('sent')
+  
+    
 }
 else{
     database.ref('/userAuth').set({});
@@ -221,6 +222,7 @@ $(document).on('click', ".favorite-button", function () {
 
 function sendLogoutToDB(){
     localStorage.clear();
+    $('#password').val('');
     $('#id-login').val('');
     $('#pwd-login').val('');
     actualUserFav = [];
