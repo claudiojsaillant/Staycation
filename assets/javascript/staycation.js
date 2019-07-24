@@ -159,33 +159,31 @@ $('#submitbutton').on('click', function (event) {
     }
 })
 
-
-function sendSignupToDB(){
-    var userid = newUsername;
-    var userpwd = newPassword;
-    if (userid != '' && userpwd != '') {
-        userCount++;
-        printID = userid + userCount;
-        $('#id-input').val('');
-        $('#pwd-input').val('');
-        alert("Your generated user id is : " + printID + " , when you log in, you have to use this ID with your password!");
-        database.ref('/userCount').set({
-            userCount: userCount
-        })
-        var newUserRef = database.ref('/User' + userCount)
-        userid = userid + userCount;
-        newUserRef.set({
-            userid: userid,
-            userpwd: userpwd
-        })
-    }
-    else {
-        alert('Input a valid userID/Pasword')
-    }
+function sendSignupToDB(){		
+    var userid = newUsername;		
+    var userpwd = newPassword;		
+    if (userid != '' && userpwd != '') {		
+        userCount++;		
+        printID = userid + userCount;		
+        $('#id-input').val('');		
+        $('#pwd-input').val('');		
+        alert("Your generated user id is : " + printID + " , when you log in, you have to use this ID with your password!");		
+        database.ref('/userCount').set({		
+            userCount: userCount		
+        })		
+        var newUserRef = database.ref('/User' + userCount)		
+        userid = userid + userCount;		
+        newUserRef.set({		
+            userid: userid,		
+            userpwd: userpwd		
+        })		
+    }		
+    else {		
+        alert('Input a valid userID/Pasword')		
+    }		
 }
 
 $('#log-button').on('click', function (event) {
-
     event.preventDefault();
     tryingToLog = true;
     //var logid = $('#id-login').val().trim();
@@ -235,9 +233,8 @@ $('#log-out').on('click', function () {
     actualUserFav = [];
     // $('#logbutton').show();
     $('#logform').show();
-    $('#log-out').hide();
+    $('#logout').hide();
 })
-
 
 $(document).on('click', ".favorite-button", function () {
     
@@ -246,7 +243,6 @@ $(document).on('click', ".favorite-button", function () {
     var newFavorite = $('#' + buttonDiv);
     $(this).remove();
     newFavorite = newFavorite.html()
-
     var howLong = userLogged.length;
     var userNumber = userLogged.charAt(howLong - 1);
     var userRef = '/User' + userNumber + '/favorites';
@@ -284,4 +280,4 @@ function sendLogoutToDB(){
     $("#logout").hide();
 }
 
-
+    
