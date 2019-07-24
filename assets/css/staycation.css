@@ -144,14 +144,8 @@ span a{
     border: 2px solid #fff;
 }
 
-<<<<<<< HEAD
 #login, #home-page, #vay-page, #preferences, #logout, #login-modal, #signup-modal{
     color: black;
-=======
-.w3-button{
-    font-family: 'Abril Fatface', cursive;
-    font-size: 20px;
->>>>>>> 3efcc4d99dbcd98ccced213f7cccfe0456f8ff2e
 }
 
 @media screen and (max-width: 450px) {
