@@ -89,6 +89,9 @@ database.ref().on('value', function (snap) {
                     $('#logbutton').hide();
                     $('#logform').hide();
                     $('#log-out').show();
+                    $("#login").hide();
+                    $("#preferences").show().css("display", "block");
+                    $("#logout").show().css("display", "block");
                     database.ref('/userAuth').set({})
                     isLogged = true;
                     if (snap.child(favRef).exists()) {
@@ -102,21 +105,24 @@ database.ref().on('value', function (snap) {
                 else if (tryingToLog) {
                     alert('Incorrect password.')
                     $('#pwd-login').val('');
-                    tryingToLog = false
+                    tryingToLog = false;
+                    //$("#login-modal").show();
                 }
             }
             else if (tryingToLog) {
                 alert('Incorrect ID.')
                 $('#id-login').val('');
                 $('#pwd-login').val('');
-                tryingToLog = false
+                tryingToLog = false;
+                //$("#login-modal").show();
             }
         }
         else if (tryingToLog) {
             alert('Incorrect ID/Pasword.')
             $('#id-login').val('');
             $('#pwd-login').val('');
-            tryingToLog = false
+            tryingToLog = false;
+            //$("#login-modal").show();
         }
     }
 
@@ -206,8 +212,8 @@ function sendLoginToDB(){
             userid: logid,
             userpwd: logpwd
         })
-        alert(username + ' is logged in');
-        $("#login").hide();
+        //alert(username + ' is logged in');
+        // $("#login").hide();
     }
     else if (tryingToLog) {
         alert('Input a valid userID/Pasword')
@@ -241,6 +247,26 @@ $(document).on('click', ".favorite-button", function () {
     $(this).remove();
     newFavorite = newFavorite.html()
 
+    var howLong = userLogged.length;
+    var userNumber = userLogged.charAt(howLong - 1);
+    var userRef = '/User' + userNumber + '/favorites';
+    var elementFav = '<div>' + newFavorite + '</div>';
+
+
+    actualUserFav.push(elementFav);
+    // making sure array doesnt have duplicates
+    var newArray = []
+    $.each(actualUserFav, function (i, el) {
+        if ($.inArray(el, newArray) === -1) newArray.push(el);
+    });
+
+    actualUserFav = newArray;
+    console.log(actualUserFav)
+
+    database.ref(userRef).set({
+        favorite: JSON.stringify(actualUserFav)
+    })
+});
 
 function sendLogoutToDB(){
     $('#id-login').val('');
@@ -257,7 +283,7 @@ function sendLogoutToDB(){
     $("#preferences").hide();
     $("#logout").hide();
 }
-
+/*
 $('#favorite').on('click', function () {
 
     var howLong = userLogged.length;
@@ -280,6 +306,6 @@ $('#favorite').on('click', function () {
         favorite: JSON.stringify(actualUserFav)
     })
 
-})
+})*/
 
 
