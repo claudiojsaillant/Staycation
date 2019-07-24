@@ -104,7 +104,7 @@ database.ref().on('value', function (snap) {
                     localStorage.setItem("userid", currentid);
                     localStorage.setItem("userpwd", currentpwd);
                     console.log(currentid + " and " + currentpwd + " saved to local");
-                                      
+                    $("#favorite").empty();                  
                     $("#login").hide();
                     $('#logout').text('Log Out, ' + currentid);
                     $("#logout").show().css("display", "block");
@@ -234,6 +234,7 @@ function sendLogoutToDB(){
     userLogged = '';
     $("#login").show();
     $("#logout").hide();
+    $("#favorite").text("<p>Log in to see your favorites!</p>");
 }
 
 

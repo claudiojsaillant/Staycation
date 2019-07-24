@@ -12,6 +12,10 @@
   font-family: 'Courgette', cursive;
 }
 
+#events-response h3{
+  font-size: 2rem;
+}
+
 .card-title{
   text-align: center;
 }
