@@ -26,30 +26,30 @@ $(".cat").click(function (event) {
             //pull data with myData variable//
             $("#loading").hide();
             $("#events-response").append("<div><h4 id='key'>" + keyword + "</h4></div>");
-            
+
             for (var i = 0; i < 15; i++) {
 
                 newDiv = $('<div>')
                 newDiv.attr('class', 'event')
                 newDiv.attr('id', 'event' + i)
-                var newA = "<a href='" + myData.events.event[i].url + "' target='_blank' alt='link to event' data-toggle='tooltip' data-placement='top' title='" + myData.events.event[i].title + "'><img class='thumbnail' src='"+ myData.events.event[i].image.medium.url + "'></a>"                                                                                                                                                                                                                                                                                                                                                                                                                      
+                var newA = "<a href='" + myData.events.event[i].url + "' target='_blank' alt='link to event' data-toggle='tooltip' data-placement='top' title='" + myData.events.event[i].title + "'><img class='thumbnail' src='" + myData.events.event[i].image.medium.url + "'></a>"
                 var newButton = $('<button>')
                 newButton.attr('class', 'favorite-button');
                 newButton.attr('div-data', 'event' + i);
                 newButton.text('Favorite this event!')
                 newDiv.append(newA);
-                if(userLogged != undefined){
-                newDiv.append(newButton);
-            }
+                if (userLogged != undefined) {
+                    newDiv.append(newButton);
+                }
                 $("#events-response").append(newDiv);
 
             }
-            
-            
+
+
         })
         .catch(() => console.log("Can’t access " + url + " response. Blocked by browser??"))
 
-        $(".modalbox").hide();
+    $(".modalbox").hide();
 });
 
 
@@ -101,6 +101,22 @@ $('#signup-btn').on('click', function () {
 });
 
 //Log out button click
-$("#logout").on('click', function(){
-  sendLogoutToDB();
-}) 
+$("#logout").on('click', function () {
+    sendLogoutToDB();
+})
+
+// API IP GEO LOCATOR
+
+const proxyURL = "https://cors-anywhere.herokuapp.com/";
+const URL = 'https://api.ipgeolocation.io/ipgeo?apiKey=8d5cbdeea6334025a6ce5f790696f479';
+fetch(proxyURL + URL)
+    .then(response => response.text())
+    .then(function (data) {
+        var ipData = JSON.parse(data);
+    
+        $('#country').append('Country: ' + ipData.country_name);
+        $('#state').append('State: ' + ipData.state_prov);
+        $('#city').append('City: ' + ipData.city);
+        $('#place').append('Your current city and place is: '+ ipData.organization);
+    })
+    .catch(() => console.log("Can’t access " + url + " response. Blocked by browser??"))
