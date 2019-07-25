@@ -1,3 +1,6 @@
+var userState;
+var userCity;
+
 $(document).ready(function () {
     //in case needed
 
@@ -261,6 +264,7 @@ function locate() {
                 $('#country').text('');
                 $('#state').text('');
                 $('#country').append(response.results[4].formatted_address)
+                userCity = response.results[4].address_components[1].long_name;
             })
         });
     }

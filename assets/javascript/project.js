@@ -1,6 +1,8 @@
 var keyword = 'food';
 var username;
 var password;
+var userState;
+var userCity;
 
 $(".cat").click(function (event) {
     event.preventDefault();
@@ -8,9 +10,16 @@ $(".cat").click(function (event) {
     keyword = $(this).attr("data-val");
     console.log("New keyword: ", keyword);
 
-    $("#loading").show();
+    var place;
 
-    var place = 'Georgia';
+    $("#loading").show();
+    if(userCity === undefined){
+        place = userState;
+    }
+    else {
+        place = userCity;
+    }
+   
     var when = 'Future';
     var queryURL = "http://api.eventful.com/json/events/search?keywords=" + keyword + "&location=" + place + "&date=" + when + "&app_key=DzrBFd4tkfmKkSSH"
     var eventData = '';
@@ -117,5 +126,6 @@ fetch(proxyURL + URL)
         var ipData = JSON.parse(data);
         $('#country').append('Country: ' + ipData.country_name);
         $('#state').append('State: ' + ipData.state_prov);
+        userState = ipData.state_prov;
     })
     .catch(() => console.log("Can’t access " + url + " response. Blocked by browser??"))
