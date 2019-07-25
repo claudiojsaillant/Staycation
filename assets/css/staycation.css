@@ -7,13 +7,14 @@ body{
 
 .stay-font{
     font-family: 'Abril Fatface', cursive;
-    -webkit-text-stroke: 0.25px white;
+    -webkit-text-stroke: 0.30px white;
     color: black;
     font-size: 4rem;
 }
 
 p, h1, h2, h3, h4, h5 a{
     font-family: 'Abril Fatface', cursive;
+    -webkit-text-stroke: 0.25px black;
 }
 
 img{
@@ -106,9 +107,10 @@ img{
     margin-top: 30px;
 }
 
-/* #pick-your-place, #pick-your-favorite{
-    padding-top: 200px;
-} */
+#title{
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
 
 #picks{
     padding-top: 200px;
@@ -140,6 +142,9 @@ i{
 
 span a{
     color: white;
+}
+#chooseAgain{
+    display: none;
 }
 
 #events-response{

@@ -34,6 +34,7 @@ $(".cat").click(function (event) {
 
             //pull data with myData variable//
             $("#loading").hide();
+            $("#chooseAgain").show();
             $("#events-response").append("<div><h3 id='key'>" + keyword + "</h4></div>");
 
             for (var i = 0; i < 15; i++) {
@@ -41,12 +42,13 @@ $(".cat").click(function (event) {
                 newDiv = $('<div>')
                 newDiv.attr('class', 'event')
                 newDiv.attr('id', 'event' + i)
+                var newTitle = "<p id='title'>" + myData.events.event[i].title + "</p>";
                 var newA = "<a href='" + myData.events.event[i].url + "' target='_blank' alt='link to event' data-toggle='tooltip' data-placement='top' title='" + myData.events.event[i].title + "'><img class='thumbnail' src='" + myData.events.event[i].image.medium.url + "'></a>"
                 var newButton = $('<button>')
                 newButton.attr('class', 'favorite-button');
                 newButton.attr('div-data', 'event' + i);
                 newButton.text('Favorite this event!')
-                newDiv.append(newA);
+                newDiv.append(newTitle).append(newA);
                 if (userLogged != undefined) {
                     newDiv.append(newButton);
                 }
