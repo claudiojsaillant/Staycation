@@ -1,3 +1,6 @@
+var userState;
+var userCity;
+
 $(document).ready(function () {
     //in case needed
 
@@ -107,6 +110,10 @@ database.ref().on('value', function (snap) {
                     localStorage.setItem("userid", currentid);
                     localStorage.setItem("userpwd", currentpwd);
                     console.log(currentid + " and " + currentpwd + " saved to local");
+
+                    $("#favorite").empty();                  
+
+
 
                     $("#login").hide();
                     $('#logout').text('Log Out, ' + currentid);
@@ -237,6 +244,7 @@ function sendLogoutToDB() {
     userLogged = '';
     $("#login").show();
     $("#logout").hide();
+    $("#favorite").text("<p>Log in to see your favorites!</p>");
 }
 
 function locate() {
@@ -256,6 +264,7 @@ function locate() {
                 $('#country').text('');
                 $('#state').text('');
                 $('#country').append(response.results[4].formatted_address)
+                userCity = response.results[4].address_components[1].long_name;
             })
         });
     }
