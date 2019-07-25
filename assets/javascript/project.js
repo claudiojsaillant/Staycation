@@ -25,7 +25,7 @@ $(".cat").click(function (event) {
 
             //pull data with myData variable//
             $("#loading").hide();
-            $("#events-response").append("<div><h4 id='key'>" + keyword + "</h4></div>");
+            $("#events-response").append("<div><h3 id='key'>" + keyword + "</h4></div>");
 
             for (var i = 0; i < 15; i++) {
 
