@@ -147,9 +147,13 @@ span a{
 }
 
 .thumbnail{
-    width: 100%;
+    width: 30%;
     margin: 5px;
     border: 2px solid #fff;
+}
+
+#favorite .thumbnail{
+    width: 100%;
 }
 
 #login, #home-page, #vay-page, #preferences, #logout, #login-modal, #signup-modal{
