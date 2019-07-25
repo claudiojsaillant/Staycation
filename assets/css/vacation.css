@@ -43,3 +43,7 @@ body{
 #search-btn{
     margin-left: -152px;
 }
+
+#choose-location{
+    display: none;
+}
