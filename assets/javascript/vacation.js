@@ -5,7 +5,7 @@ $(document).ready(function(){
  var location;
 
 $("#events-btn").click(function(){
-    $("#choose-location").show();
+    $("#events-section").show();
     console.log("Show choose location");
 });
 
