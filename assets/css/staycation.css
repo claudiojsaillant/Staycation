@@ -110,6 +110,7 @@ img{
 #title{
     margin-top: 1rem;
     margin-bottom: 0;
+    font-size: 18px;
 }
 
 #picks{
@@ -151,8 +152,12 @@ span a{
     text-align: center
 }
 
+.event{
+    display: inline-grid;
+}
+
 .thumbnail{
-    width: 30%;
+    width: 50%;
     margin: 5px;
     border: 2px solid #fff;
 }

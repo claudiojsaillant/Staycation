@@ -40,7 +40,7 @@ $(".cat").click(function (event) {
             for (var i = 0; i < 15; i++) {
 
                 newDiv = $('<div>')
-                newDiv.attr('class', 'event')
+                newDiv.attr('class', 'event col-md-6')
                 newDiv.attr('id', 'event' + i)
                 var newTitle = "<p id='title'>" + myData.events.event[i].title + "</p>";
                 var newA = "<a href='" + myData.events.event[i].url + "' target='_blank' alt='link to event' data-toggle='tooltip' data-placement='top' title='" + myData.events.event[i].title + "'><img class='thumbnail' src='" + myData.events.event[i].image.medium.url + "'></a>"
