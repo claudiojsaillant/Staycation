@@ -35,3 +35,11 @@ body{
     color: white;
     font-size: 18px;
 }
+
+#locationToSearch{
+    padding-top: 93px;
+}
+
+#search-btn{
+    margin-left: -152px;
+}
