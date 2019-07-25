@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/css/resetCss.css">
     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'
-        integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>
+          integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
@@ -30,33 +30,32 @@
 </head>
 
 <body class="body">
-    <!--[if lt IE 7]>
+<!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a>
     to improve your experience.</p>
 <![endif]-->
-    <!-- Sidebar -->
-    <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
-        <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
-        <a href="#" class="w3-bar-item w3-button" id="login" data-toggle="modal" data-target="#login-modal">Log In</a>
-        <a href="staycation.html" class="w3-bar-item w3-button" id="stay-page">Staycation</a>
-        <a href="vacation.html" class="w3-bar-item w3-button" id="vay-page">Vacation</a>
-        <a href="#" class="w3-bar-item w3-button" id="logout">Log Out</a>
-    </div>
-    <button class="w3-button w3-white w3-xlarge" id="sidenav" onclick="w3_open()">☰</button>
-    <div class="container">
-        <div class="row white-text">
-            <div class="mx-auto">
-                <h1><span id="stay">Staycation</span> or <span id="vay">Vacation</span></h1>
-            </div>
-
-
+<!-- Sidebar -->
+<div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+    <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+    <a href="#" class="w3-bar-item w3-button" id="login" data-toggle="modal" data-target="#login-modal">Log In</a>
+    <a href="staycation.html" class="w3-bar-item w3-button" id="stay-page">Staycation</a>
+    <a href="vacation.html" class="w3-bar-item w3-button" id="vay-page">Vacation</a>
+    <a href="#" class="w3-bar-item w3-button" id="logout">Log Out</a>
+</div>
+<button class="w3-button w3-white w3-xlarge" id="sidenav" onclick="w3_open()">☰</button>
+<div class="container">
+    <div class="row white-text">
+        <div class="mx-auto">
+            <h1><span id="stay">Staycation</span> or <span id="vay">Vacation</span></h1>
         </div>
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-xl-10">
-                <div class="card blue-grey darken-1" id="transparent-card">
-                    <div class="card-content white-text">
-                        <span class="card-title">Stay and Play or Need to Get Away?</span>
+    </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-xl-10">
+            <div class="card blue-grey darken-1" id="transparent-card">
+                <div class="card-content white-text">
+                    <div class="row">
+                        <div class="card-title">Stay and Play or Need to Get Away?</div>
                         <p>Need to get away but don’t know where to go or what to do? What if you need to get away but
                             don’t have time to take a big trip? What if you have time but have no inspiration? That’s
                             where the Staycation/Vacation app comes in. This app helps you find places of interest to
@@ -66,136 +65,139 @@
                             vacation mode to search flight prices, hotels, rental car, and public transportation for
                             your destination. Whether you want to stay close to home or roam the globe, this app is here
                             for you.</p>
-                        <br>
-                        <h2 id="location">Your current location is: </h2>
-                        <button id="btnAction" onClick="locate()">Get your specific location!</button>
-                        <h4 id="country"></h4>
-                        <h4 id="state"></h4>
-                        <h4 id="city"></h4>
-                        <h4 id="place"></h4>
-                       
-
-
+                    </div>
+                    <div class="row">
+                        <div class="col" id="currentLocation">
+                            <h2 id="location">Your current location is: </h2>
+                            <button id="btnAction" onClick="locate()">Get your specific location!</button>
+                            <h4 id="country"></h4>
+                            <h4 id="state"></h4>
+                            <h4 id="city"></h4>
+                            <h4 id="place"></h4>
+                        </div>
                     </div>
 
 
+                </div>
 
-                    <a href="staycation.html" class="btn btn-primary btn-lg active" role="button"
-                        aria-disabled="true">Staycation</a>
-                    <a href="vacation.html" class="btn btn-success btn-lg active" role="button"
-                        aria-disabled="true">Vacation</a>
+
+                <a href="staycation.html" class="btn btn-primary btn-lg active" role="button"
+                   aria-disabled="true">Staycation</a>
+                <a href="vacation.html" class="btn btn-success btn-lg active" role="button"
+                   aria-disabled="true">Vacation</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginTitle">Login to Staycation/Vacation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="well">
+                                <div id="loginForm" novalidate="novalidate">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="username" class="control-label">Username</label>
+                                            <input type="text" class="form-control" id="username" name="username"
+                                                   value="" required="" title="Please enter you username"
+                                                   placeholder="example@gmail.com">
+                                            <span class="help-block"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password" class="control-label">Password</label>
+                                            <input type="password" class="form-control" id="password"
+                                                   name="password" value="" required=""
+                                                   title="Please enter your password">
+                                            <span class="help-block"></span>
+                                            <input type="submit" id="login-btn" class="btn btn-primary"
+                                                   value="Login!"/>
+                                        </div>
+                                        <div id="loginErrorMsg" class="alert alert-error hide">Wrong username og
+                                            password
+                                        </div>
+                                    </form>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Register Modal -->
+                        <div class="col-md-6">
+                            <p class="lead">Register now for <span class="text-success">FREE</span></p>
+                            <ul class="list-unstyled" style="line-height: 2">
+                                <li><span class="fa fa-check text-success"></span> Save your favorites</li>
+                                <li><span class="fa fa-check text-success"></span> Add reviews</li>
+                            </ul>
+                            <p><a href="#signup-modal" class="btn btn-info btn-block" id="register-btn">Register
+                                now!</a></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <!-- Login Modal -->
-        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="loginTitle">Login to Staycation/Vacation</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
+    </div>
+    <div class="modal" id="signup-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sign Up</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form>
                     <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="well">
-                                    <div id="loginForm" novalidate="novalidate">
-                                        <form>
-                                            <div class="form-group">
-                                                <label for="username" class="control-label">Username</label>
-                                                <input type="text" class="form-control" id="username" name="username"
-                                                    value="" required="" title="Please enter you username"
-                                                    placeholder="example@gmail.com">
-                                                <span class="help-block"></span>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="password" class="control-label">Password</label>
-                                                <input type="password" class="form-control" id="password"
-                                                    name="password" value="" required=""
-                                                    title="Please enter your password">
-                                                <span class="help-block"></span>
-                                                <input type="submit" id="login-btn" class="btn btn-primary"
-                                                    value="Login!" />
-                                            </div>
-                                            <div id="loginErrorMsg" class="alert alert-error hide">Wrong username og
-                                                password</div>
-                                        </form>
 
+                        <div id="signupForm" novalidate="novalidate">
 
-                                    </div>
-                                </div>
+                            <div class="form-group">
+                                <label for="username" class="control-label">Username</label>
+                                <input type="text" class="form-control" id="newUsername" name="newUsername" value=""
+                                       required="" title="Please enter you username" placeholder="Username">
+                                <span class="help-block"></span>
                             </div>
-                            <!-- Register Modal -->
-                            <div class="col-md-6">
-                                <p class="lead">Register now for <span class="text-success">FREE</span></p>
-                                <ul class="list-unstyled" style="line-height: 2">
-                                    <li><span class="fa fa-check text-success"></span> Save your favorites</li>
-                                    <li><span class="fa fa-check text-success"></span> Add reviews</li>
-                                </ul>
-                                <p><a href="#signup-modal" class="btn btn-info btn-block" id="register-btn">Register
-                                        now!</a></p>
+                            <div class="form-group">
+                                <label for="password" class="control-label">Password</label>
+                                <input type="password" class="form-control" id="newPassword" name="newPassword"
+                                       value="" required="" title="Please enter your password">
+                                <span class="help-block"></span>
                             </div>
+
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal" id="signup-modal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Sign Up</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                    <div class="modal-footer">
+                        <input type="submit" id="signup-btn" class="btn btn-primary" value="Signup!"/>
                     </div>
-                    <form>
-                        <div class="modal-body">
-
-                            <div id="signupForm" novalidate="novalidate">
-
-                                <div class="form-group">
-                                    <label for="username" class="control-label">Username</label>
-                                    <input type="text" class="form-control" id="newUsername" name="newUsername" value=""
-                                        required="" title="Please enter you username" placeholder="Username">
-                                    <span class="help-block"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label for="password" class="control-label">Password</label>
-                                    <input type="password" class="form-control" id="newPassword" name="newPassword"
-                                        value="" required="" title="Please enter your password">
-                                    <span class="help-block"></span>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <input type="submit" id="signup-btn" class="btn btn-primary" value="Signup!" />
-                        </div>
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
-
-
     </div>
 
 
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'
+</div>
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'
         integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1'
         crossorigin='anonymous'></script>
-    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'
         integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM'
         crossorigin='anonymous'></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAq5H3zQDHnoQzLHEg4a1LH9dC5WIlIFwY" async
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAq5H3zQDHnoQzLHEg4a1LH9dC5WIlIFwY" async
         defer></script>
-    <script src="assets/javascript/project.js"></script>
-    <script src="assets/javascript/staycation.js"></script>
-    <script src="https://kit.fontawesome.com/3545519c23.js"></script>
+<script src="assets/javascript/project.js"></script>
+<script src="assets/javascript/staycation.js"></script>
+<script src="https://kit.fontawesome.com/3545519c23.js"></script>
 
 </body>
 

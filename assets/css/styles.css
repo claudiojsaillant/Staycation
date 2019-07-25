@@ -16,8 +16,9 @@
   font-size: 2rem;
 }
 
-.card-title{
+.card-title, #currentLocation{
   text-align: center;
+  margin: auto;
 }
 
 #transparent-card{
