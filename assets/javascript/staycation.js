@@ -14,6 +14,13 @@ function getCredentials() {
 
 $("#linkmodal").click(function () {
     $("#linkmodal").hide();
+    //$("#events-response").empty();
+})
+
+$("#chooseAgain").click(function () {
+    $("#chooseAgain").hide();
+    $("#text").show();
+    $("#events-response").empty();
 })
 
 $("#modal-close").click(function () {
