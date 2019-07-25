@@ -239,35 +239,26 @@ function sendLogoutToDB() {
     $("#logout").hide();
 }
 
+function locate() {
+    if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var currentLatitude = position.coords.latitude;
+            var currentLongitude = position.coords.longitude;
+            console.log(currentLatitude);
+            console.log(currentLongitude);
+            latLong = currentLatitude + "," + currentLongitude;
+            const queryURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + latLong + "&sensor=false&key=AIzaSyAq5H3zQDHnoQzLHEg4a1LH9dC5WIlIFwY";
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).then(function (response) {
+                console.log(response);
+                $('#country').text('');
+                $('#state').text('');
+                $('#country').append(response.results[4].formatted_address)
+            })
+        });
+    }
+}
 
-// if ("geolocation" in navigator) {
-
-//   var getLoc =  navigator.geolocation.getCurrentPosition(function (position) {
-//         currentLatitude = position.coords.latitude;
-//         currentLongitude = position.coords.longitude;
-//         console.log(currentLatitude);
-//         console.log(currentLongitude);
-//         latLong = currentLatitude + "," + currentLongitude;
-//         const queryURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + latLong + "&sensor=false&key=AIzaSyAq5H3zQDHnoQzLHEg4a1LH9dC5WIlIFwY";
-//         $.ajax({
-//             url: queryURL,
-//             method: "GET"
-//         }).then(function (response) {
-//             console.log(response);
-//             $('#country').text('');
-//             $('#state').text('');
-//             $('#city').text('');
-//             $('#place').text('');
-//             $('#country').append(response.results[5].formatted_address)
-//         })
-//     })
-
-//     setTimeout(function(){
-//         if(getLoc === undefined){
-//             console.log('didnt share')
-//         }
-//     },7000)
-
-    
-// }
 

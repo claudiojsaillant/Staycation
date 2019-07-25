@@ -115,9 +115,7 @@ fetch(proxyURL + URL)
     .then(response => response.text())
     .then(function (data) {
         var ipData = JSON.parse(data);
-    
         $('#country').append('Country: ' + ipData.country_name);
         $('#state').append('State: ' + ipData.state_prov);
-        $('#city').append('City: ' + ipData.city);
     })
     .catch(() => console.log("Can’t access " + url + " response. Blocked by browser??"))
