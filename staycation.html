@@ -33,7 +33,7 @@
     <!-- Sidebar -->
     <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
         <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
-        <a href="#" class="w3-bar-item w3-button" id="login" data-toggle="modal" data-target="#login-modal">Log In</a>
+        <a href="#" class="w3-bar-item w3-button" id="login" data-toggle="modal" data-target="#login-modal"></a>
         <a href="vacation.html" class="w3-bar-item w3-button" id="vay-page">Vacation</a>
         <a href="index.html" class="w3-bar-item w3-button" id="home-page">Home</a>
         <a href="#" class="w3-bar-item w3-button" id="logout">Log Out</a>
@@ -86,7 +86,10 @@
             <div class="col-md-6" id="pick-your-favorite">
                 <h3>Your Favorites</h3>
                 <div class="row" id="favorite">
+
+
                         <p>Log in to see your favorites!</p>
+
                 </div>
             </div>
 
@@ -130,26 +133,29 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="well">
-                                    <div id="loginForm" novalidate="novalidate">
-                                        <div class="form-group">
-                                            <label for="username" class="control-label">Username</label>
-                                            <input type="text" class="form-control" id="username" name="username"
-                                                value="" required="" title="Please enter you username"
-                                                placeholder="example@gmail.com">
-                                            <span class="help-block"></span>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="password" class="control-label">Password</label>
-                                            <input type="password" class="form-control" id="password" name="password"
-                                                value="" required="" title="Please enter your password">
-                                            <span class="help-block"></span>
-                                        </div>
-                                        <div id="loginErrorMsg" class="alert alert-error hide">Wrong username og
-                                            password</div>
+                                    <form>
+                                        <div id="loginForm" novalidate="novalidate">
+                                            <div class="form-group">
+                                                <label for="username" class="control-label">Username</label>
+                                                <input type="text" class="form-control" id="username" name="username"
+                                                    value="" required="" title="Please enter you username"
+                                                    placeholder="example@gmail.com">
+                                                <span class="help-block"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="password" class="control-label">Password</label>
+                                                <input type="password" class="form-control" id="password"
+                                                    name="password" value="" required=""
+                                                    title="Please enter your password">
+                                                <span class="help-block"></span>
+                                            </div>
+                                            <div id="loginErrorMsg" class="alert alert-error hide">Wrong username og
+                                                password</div>
 
-                                        <button type="submit" class="btn btn-success btn-block"
-                                            id="login-btn">Login</button>
-                                    </div>
+                                            <input type="submit" id="login-btn" class="btn btn-primary"
+                                                value="Login!" />
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                             <!-- Register Modal -->
@@ -176,27 +182,28 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                        <div id="signupForm" novalidate="novalidate">
-                            <div class="form-group">
-                                <label for="username" class="control-label">Username</label>
-                                <input type="text" class="form-control" id="newUsername" name="newUsername" value=""
-                                    required="" title="Please enter you username" placeholder="Username">
-                                <span class="help-block"></span>
-                            </div>
-                            <div class="form-group">
-                                <label for="password" class="control-label">Password</label>
-                                <input type="password" class="form-control" id="newPassword" name="newPassword" value=""
-                                    required="" title="Please enter your password">
-                                <span class="help-block"></span>
-                            </div>
+                    <form>
+                        <div class="modal-body">
+                            <div id="signupForm" novalidate="novalidate">
+                                <div class="form-group">
+                                    <label for="username" class="control-label">Username</label>
+                                    <input type="text" class="form-control" id="newUsername" name="newUsername" value=""
+                                        required="" title="Please enter you username" placeholder="Username">
+                                    <span class="help-block"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" class="control-label">Password</label>
+                                    <input type="password" class="form-control" id="newPassword" name="newPassword"
+                                        value="" required="" title="Please enter your password">
+                                    <span class="help-block"></span>
+                                </div>
 
+                            </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="signup-btn">Save changes</button>
-                    </div>
+                        <div class="modal-footer">
+                            <input type="submit" id="signup-btn" class="btn btn-primary" value="Signup!" />
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
