@@ -48,6 +48,15 @@
             <div class="col-md-12" id="events-response">
                 <img id="loading" src="assets/images/loading.gif">
             </div>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <h3 id="uName">You have entered an incorrect username.</h3>
+                <h3 id="pwd">You have entered an incorrect password.</h3>
+                <h3 id="both">You have entered an incorrect username or password.</h3>
+                <h3 id="invalid">You have entered an invalid username or password.</h3>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
 
         </div>
 
@@ -153,7 +162,7 @@
                                                     title="Please enter your password">
                                                 <span class="help-block"></span>
                                             </div>
-                                            <div id="loginErrorMsg" class="alert alert-error hide">Wrong username og
+                                            <div id="loginErrorMsg" class="alert alert-error hide">Wrong username or
                                                 password</div>
 
                                             <input type="submit" id="login-btn" class="btn btn-primary"

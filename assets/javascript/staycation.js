@@ -139,20 +139,23 @@ database.ref().on('value', function (snap) {
                     })
                 }
                 else if (tryingToLog) {
-                    alert('Incorrect password.')
+                    $(".alert-warning").show();
+                    $("#pwd").show();
                     $('#pwd-login').val('');
                     tryingToLog = false;
                 }
             }
             else if (tryingToLog) {
-                alert('Incorrect ID.')
+                $(".alert-warning").show();
+                $("#uName").show();
                 $('#id-login').val('');
                 $('#pwd-login').val('');
                 tryingToLog = false;
             }
         }
         else if (tryingToLog) {
-            alert('Incorrect ID/Pasword.')
+            $(".alert-warning").show();
+            $("#both").show();
             $('#id-login').val('');
             $('#pwd-login').val('');
             tryingToLog = false;
@@ -175,7 +178,8 @@ function sendSignupToDB() {
         printID = userid + userCount;
         $('#id-input').val('');
         $('#pwd-input').val('');
-        alert("Your generated user id is : " + printID + " , when you log in, you have to use this ID with your password!");
+        $(".alert-warning").show();
+        $(".alert-warning").append("<h3>Your generated user id is : " + printID + " , when you log in, you have to use this ID with your password!</h3>");
         database.ref('/userCount').set({
             userCount: userCount
         })
@@ -187,7 +191,8 @@ function sendSignupToDB() {
         })
     }
     else {
-        alert('Input a valid userID/Pasword')
+        $(".alert-warning").show();
+        $("#invalid").show();
     }
 }
 
@@ -205,7 +210,8 @@ function sendLoginToDB() {
         })
     }
     else if (tryingToLog) {
-        alert('Input a valid userID/Pasword')
+        $(".alert-warning").show();
+        $("#pwd").show();
     }
 }
 
