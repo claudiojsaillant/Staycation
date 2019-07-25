@@ -41,20 +41,32 @@
     <button class="w3-button w3-white w3-xlarge" id="sidenav" onclick="w3_open()">☰</button>
     <div class="container">
         <header>
-            <h1 class="stay-font">Staycation</h1>
+            <h1 class="stay-font animated lightSpeedIn">Staycation</h1>
         </header>
 
         <div class="row">
             <div class="col-md-12" id="events-response">
                 <img id="loading" src="assets/images/loading.gif">
             </div>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <h3 id="uName">You have entered an incorrect username.</h3>
+                <h3 id="pwd">You have entered an incorrect password.</h3>
+                <h3 id="both">You have entered an incorrect username or password.</h3>
+                <h3 id="invalid">You have entered an invalid username or password.</h3>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
 
         </div>
 
         <div class="row">
             <div class="col-md-12">
-                <div class="link-modal" id="linkmodal">
+                <div class="link-modal animated bounceInUp delay-1s" id="linkmodal">
                     <a href="#text">Need Inspiration?</a>
+                </div>
+                <div class="link-modal animated bounceInUp" id="chooseAgain">
+                    <a href="#text">Choose Another Category</a>
                 </div>
 
                 <div class="modalbox" id="text">
@@ -86,7 +98,11 @@
             <div class="col-md-6" id="pick-your-favorite">
                 <h3>Your Favorites</h3>
                 <div class="row" id="favorite">
-                        <p>Log in to see your favorites!</p>
+
+
+                        Log in to see your favorites!
+
+
                 </div>
             </div>
 
@@ -130,26 +146,29 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="well">
-                                    <div id="loginForm" novalidate="novalidate">
-                                        <div class="form-group">
-                                            <label for="username" class="control-label">Username</label>
-                                            <input type="text" class="form-control" id="username" name="username"
-                                                value="" required="" title="Please enter you username"
-                                                placeholder="example@gmail.com">
-                                            <span class="help-block"></span>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="password" class="control-label">Password</label>
-                                            <input type="password" class="form-control" id="password" name="password"
-                                                value="" required="" title="Please enter your password">
-                                            <span class="help-block"></span>
-                                        </div>
-                                        <div id="loginErrorMsg" class="alert alert-error hide">Wrong username og
-                                            password</div>
+                                    <form>
+                                        <div id="loginForm" novalidate="novalidate">
+                                            <div class="form-group">
+                                                <label for="username" class="control-label">Username</label>
+                                                <input type="text" class="form-control" id="username" name="username"
+                                                    value="" required="" title="Please enter you username"
+                                                    placeholder="example@gmail.com">
+                                                <span class="help-block"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="password" class="control-label">Password</label>
+                                                <input type="password" class="form-control" id="password"
+                                                    name="password" value="" required=""
+                                                    title="Please enter your password">
+                                                <span class="help-block"></span>
+                                            </div>
+                                            <div id="loginErrorMsg" class="alert alert-error hide">Wrong username or
+                                                password</div>
 
-                                        <button type="submit" class="btn btn-success btn-block"
-                                            id="login-btn">Login</button>
-                                    </div>
+                                            <input type="submit" id="login-btn" class="btn btn-primary"
+                                                value="Login!" />
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                             <!-- Register Modal -->
@@ -176,27 +195,28 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                        <div id="signupForm" novalidate="novalidate">
-                            <div class="form-group">
-                                <label for="username" class="control-label">Username</label>
-                                <input type="text" class="form-control" id="newUsername" name="newUsername" value=""
-                                    required="" title="Please enter you username" placeholder="Username">
-                                <span class="help-block"></span>
-                            </div>
-                            <div class="form-group">
-                                <label for="password" class="control-label">Password</label>
-                                <input type="password" class="form-control" id="newPassword" name="newPassword" value=""
-                                    required="" title="Please enter your password">
-                                <span class="help-block"></span>
-                            </div>
+                    <form>
+                        <div class="modal-body">
+                            <div id="signupForm" novalidate="novalidate">
+                                <div class="form-group">
+                                    <label for="username" class="control-label">Username</label>
+                                    <input type="text" class="form-control" id="newUsername" name="newUsername" value=""
+                                        required="" title="Please enter you username" placeholder="Username">
+                                    <span class="help-block"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" class="control-label">Password</label>
+                                    <input type="password" class="form-control" id="newPassword" name="newPassword"
+                                        value="" required="" title="Please enter your password">
+                                    <span class="help-block"></span>
+                                </div>
 
+                            </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="signup-btn">Save changes</button>
-                    </div>
+                        <div class="modal-footer">
+                            <input type="submit" id="signup-btn" class="btn btn-primary" value="Signup!" />
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

@@ -7,13 +7,14 @@ body{
 
 .stay-font{
     font-family: 'Abril Fatface', cursive;
-    -webkit-text-stroke: 0.25px white;
+    -webkit-text-stroke: 0.30px white;
     color: black;
     font-size: 4rem;
 }
 
 p, h1, h2, h3, h4, h5 a{
     font-family: 'Abril Fatface', cursive;
+    -webkit-text-stroke: 0.25px black;
 }
 
 img{
@@ -106,9 +107,11 @@ img{
     margin-top: 30px;
 }
 
-/* #pick-your-place, #pick-your-favorite{
-    padding-top: 200px;
-} */
+#title{
+    margin-top: 1rem;
+    margin-bottom: 0;
+    font-size: 18px;
+}
 
 #picks{
     padding-top: 200px;
@@ -141,13 +144,20 @@ i{
 span a{
     color: white;
 }
+#chooseAgain{
+    display: none;
+}
 
 #events-response{
     text-align: center
 }
 
+.event{
+    display: inline-grid;
+}
+
 .thumbnail{
-    width: 30%;
+    width: 50%;
     margin: 5px;
     border: 2px solid #fff;
 }
@@ -171,14 +181,6 @@ span a{
         min-width: 395px;
         
     }
-
-    /* #pick-your-place{
-        padding-top: 240px;
-    }
-
-    #pick-your-favorite{
-        padding-top: 240px;
-    } */
 
     #picks{
         padding-top: 240px;

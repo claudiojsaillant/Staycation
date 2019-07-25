@@ -1,6 +1,8 @@
 var keyword = 'food';
 var username;
 var password;
+var userState;
+var userCity;
 
 $(".cat").click(function (event) {
     event.preventDefault();
@@ -8,9 +10,16 @@ $(".cat").click(function (event) {
     keyword = $(this).attr("data-val");
     console.log("New keyword: ", keyword);
 
-    $("#loading").show();
+    var place;
 
-    var place = 'Georgia';
+    $("#loading").show();
+    if(userCity === undefined){
+        place = userState;
+    }
+    else {
+        place = userCity;
+    }
+   
     var when = 'Future';
     var queryURL = "http://api.eventful.com/json/events/search?keywords=" + keyword + "&location=" + place + "&date=" + when + "&app_key=DzrBFd4tkfmKkSSH"
     var eventData = '';
@@ -25,19 +34,21 @@ $(".cat").click(function (event) {
 
             //pull data with myData variable//
             $("#loading").hide();
+            $("#chooseAgain").show();
             $("#events-response").append("<div><h3 id='key'>" + keyword + "</h4></div>");
 
             for (var i = 0; i < 15; i++) {
 
                 newDiv = $('<div>')
-                newDiv.attr('class', 'event')
+                newDiv.attr('class', 'event col-md-6')
                 newDiv.attr('id', 'event' + i)
+                var newTitle = "<p id='title'>" + myData.events.event[i].title + "</p>";
                 var newA = "<a href='" + myData.events.event[i].url + "' target='_blank' alt='link to event' data-toggle='tooltip' data-placement='top' title='" + myData.events.event[i].title + "'><img class='thumbnail' src='" + myData.events.event[i].image.medium.url + "'></a>"
                 var newButton = $('<button>')
                 newButton.attr('class', 'favorite-button');
                 newButton.attr('div-data', 'event' + i);
                 newButton.text('Favorite this event!')
-                newDiv.append(newA);
+                newDiv.append(newTitle).append(newA);
                 if (userLogged != undefined) {
                     newDiv.append(newButton);
                 }
@@ -115,10 +126,8 @@ fetch(proxyURL + URL)
     .then(response => response.text())
     .then(function (data) {
         var ipData = JSON.parse(data);
-    
         $('#country').append('Country: ' + ipData.country_name);
         $('#state').append('State: ' + ipData.state_prov);
-        $('#city').append('City: ' + ipData.city);
-        $('#place').append('Your current place is: '+ ipData.organization);
+        userState = ipData.state_prov;
     })
     .catch(() => console.log("Can’t access " + url + " response. Blocked by browser??"))

@@ -1,3 +1,6 @@
+var userState;
+var userCity;
+
 $(document).ready(function () {
     //in case needed
 
@@ -11,6 +14,13 @@ function getCredentials() {
 
 $("#linkmodal").click(function () {
     $("#linkmodal").hide();
+    //$("#events-response").empty();
+})
+
+$("#chooseAgain").click(function () {
+    $("#chooseAgain").hide();
+    $("#text").show();
+    $("#events-response").empty();
 })
 
 $("#modal-close").click(function () {
@@ -53,24 +63,27 @@ var isLogged;
 var userLogged;
 var actualUserFav = [];
 var tryingToLog = false;
+var currentLongitude;
+var currentLatitude;
+var latLong;
 
 userInLocal = localStorage.getItem("userid");
 passwordInLocal = localStorage.getItem("userpwd");
 
-if(userInLocal != undefined && passwordInLocal != undefined){
+if (userInLocal != undefined && passwordInLocal != undefined) {
     username = userInLocal;
     password = passwordInLocal;
     sendLoginToDB();
-  
-    
+
+
 }
-else{
+else {
     database.ref('/userAuth').set({});
 };
 
 
 database.ref().on('value', function (snap) {
-    
+
     var userRef;
     if (userLogged != undefined) {
         var howLong = userLogged.length;
@@ -82,7 +95,7 @@ database.ref().on('value', function (snap) {
             actualUserFav = JSON.parse(actualUserFav);
         }
     }
-    console.log(snap.child("/userAuth").exists());
+
     if (snap.child("/userAuth").exists()) {
         var currentid = snap.val().userAuth.userid;
         var currentpwd = snap.val().userAuth.userpwd;
@@ -104,7 +117,11 @@ database.ref().on('value', function (snap) {
                     localStorage.setItem("userid", currentid);
                     localStorage.setItem("userpwd", currentpwd);
                     console.log(currentid + " and " + currentpwd + " saved to local");
+
                     $("#favorite").empty();                  
+
+
+
                     $("#login").hide();
                     $('#logout').text('Log Out, ' + currentid);
                     $("#logout").show().css("display", "block");
@@ -115,27 +132,30 @@ database.ref().on('value', function (snap) {
                         actualUserFav = JSON.parse(actualUserFav);
                         $.each(actualUserFav, function (i, el) {
                             $("#favorite").append($("<div class='col-md-4 newFav'>").html(el));
-                        });                        
+                        });
                     }
                     database.ref(childRef + '/isLogged').set({
                         isLogged: true
                     })
                 }
                 else if (tryingToLog) {
-                    alert('Incorrect password.')
+                    $(".alert-warning").show();
+                    $("#pwd").show();
                     $('#pwd-login').val('');
                     tryingToLog = false;
                 }
             }
             else if (tryingToLog) {
-                alert('Incorrect ID.')
+                $(".alert-warning").show();
+                $("#uName").show();
                 $('#id-login').val('');
                 $('#pwd-login').val('');
                 tryingToLog = false;
             }
         }
         else if (tryingToLog) {
-            alert('Incorrect ID/Pasword.')
+            $(".alert-warning").show();
+            $("#both").show();
             $('#id-login').val('');
             $('#pwd-login').val('');
             tryingToLog = false;
@@ -150,37 +170,39 @@ database.ref('/userCount').on('value', function (snap) {
     }
 })
 
-function sendSignupToDB(){		
-    var userid = newUsername;		
-    var userpwd = newPassword;		
-    if (userid != '' && userpwd != '') {		
-        userCount++;		
-        printID = userid + userCount;		
-        $('#id-input').val('');		
-        $('#pwd-input').val('');		
-        alert("Your generated user id is : " + printID + " , when you log in, you have to use this ID with your password!");		
-        database.ref('/userCount').set({		
-            userCount: userCount		
-        })		
-        var newUserRef = database.ref('/User' + userCount)		
-        userid = userid + userCount;		
-        newUserRef.set({		
-            userid: userid,		
-            userpwd: userpwd		
-        })		
-    }		
-    else {		
-        alert('Input a valid userID/Pasword')		
-    }		
+function sendSignupToDB() {
+    var userid = newUsername;
+    var userpwd = newPassword;
+    if (userid != '' && userpwd != '') {
+        userCount++;
+        printID = userid + userCount;
+        $('#id-input').val('');
+        $('#pwd-input').val('');
+        $(".alert-warning").show();
+        $(".alert-warning").append("<h3>Your generated user id is : " + printID + " , when you log in, you have to use this ID with your password!</h3>");
+        database.ref('/userCount').set({
+            userCount: userCount
+        })
+        var newUserRef = database.ref('/User' + userCount)
+        userid = userid + userCount;
+        newUserRef.set({
+            userid: userid,
+            userpwd: userpwd
+        })
+    }
+    else {
+        $(".alert-warning").show();
+        $("#invalid").show();
+    }
 }
 
-function sendLoginToDB(){
+function sendLoginToDB() {
     tryingToLog = true;
     var logid = username;
     var logpwd = password;
 
     if (logid != '' && logpwd != '') {
-        
+
         console.log(logid + " " + logpwd);
         database.ref('/userAuth').set({
             userid: logid,
@@ -188,12 +210,13 @@ function sendLoginToDB(){
         })
     }
     else if (tryingToLog) {
-        alert('Input a valid userID/Pasword')
+        $(".alert-warning").show();
+        $("#pwd").show();
     }
 }
 
 $(document).on('click', ".favorite-button", function () {
-    
+
     console.log('hello')
     var buttonDiv = $(this).attr('div-data')
     var newFavorite = $('#' + buttonDiv);
@@ -220,7 +243,7 @@ $(document).on('click', ".favorite-button", function () {
     })
 });
 
-function sendLogoutToDB(){
+function sendLogoutToDB() {
     localStorage.clear();
     $('#password').val('');
     $('#id-login').val('');
@@ -237,5 +260,27 @@ function sendLogoutToDB(){
     $("#favorite").text("<p>Log in to see your favorites!</p>");
 }
 
+function locate() {
+    if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var currentLatitude = position.coords.latitude;
+            var currentLongitude = position.coords.longitude;
+            console.log(currentLatitude);
+            console.log(currentLongitude);
+            latLong = currentLatitude + "," + currentLongitude;
+            const queryURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + latLong + "&sensor=false&key=AIzaSyAq5H3zQDHnoQzLHEg4a1LH9dC5WIlIFwY";
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).then(function (response) {
+                console.log(response);
+                $('#country').text('');
+                $('#state').text('');
+                $('#country').append(response.results[4].formatted_address)
+                userCity = response.results[4].address_components[1].long_name;
+            })
+        });
+    }
+}
 
-    
+

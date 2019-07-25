@@ -16,8 +16,9 @@
   font-size: 2rem;
 }
 
-.card-title{
+.card-title, #currentLocation{
   text-align: center;
+  margin: auto;
 }
 
 #transparent-card{
@@ -40,4 +41,9 @@
 
 #logout{
   display: none;
+}
+
+#uName, #pwd, #both, #invalid, .alert-warning{
+    display: none;
+    margin: auto;
 }
