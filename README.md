@@ -11,27 +11,18 @@ In future releases, we plan on expanding the APIs used to stay in the app to fin
 
 
 
-### Project Goals:
+### The app:
 
-Build Something Awesome
-Requirements:
+Uses three APIs: IP-Geolocator, Google Maps and Eventful
 
-Must uses at least two APIs
+Uses AJAX and fetch to pull data
 
-Must use AJAX to pull data
+Utilize great libraries: animate.css, firebase to keep the users information and even more!
 
-Must utilize at least one new library or technology that we haven't discussed
+Has a polished front end
 
-Must have a polished frontend / UI
+Is made on Boostrap 
 
-Must meet good quality coding standards (indentation, scoping, naming)
+Has Favorites that are saved on users
 
-Must NOT use alerts, confirms, or prompts (look into modals!)
-
-Must have some sort of repeating element (table, columns, etc)
-
-Must use Bootstrap or Alternative CSS Framework
-
-Must be Deployed (GitHub Pages or Firebase)
-
-Must have User Input Validation
+Has an User LogIn/LogOut with persistent logging
