@@ -1,5 +1,7 @@
 # Staycation/Vacation
 
+## Deployed on: https://claudiojsaillant.github.io/Staycation/
+
 ## What's this used for?
 This app is used to help people find things to do and places to go, near or far.
 No matter if you only have one day or twenty days off, everyone deserves a chance to get out and enjoy themselves.
